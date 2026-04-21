@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "La Table Des Loups — Nomeny, 54610",
   description:
     "Association de quartier engagée autour de la solidarité, l'écologie et le sport. Rejoignez la communauté TDL à Nomeny.",
+  verification: {
+    google: "p4aJP5Ekm4aDuraPpWSOO-qFBRaw8Sbxy5GSHkW4-ZY",
+  },
 };
 
 export default function RootLayout({
