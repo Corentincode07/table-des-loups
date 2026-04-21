@@ -104,10 +104,10 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-2"
         >
           <motion.div variants={itemVariants} className="flex justify-center mt-20">
-            <Image src="/logo.png" width={500} height={500} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} className="mx-auto" />
+            <Image src="/logo.png" width={500} height={500} alt="Logo La Table Des Loups" style={{ objectFit: "contain", background: "transparent", mixBlendMode: "screen" }} className="mx-auto" />
           </motion.div>
 
           <motion.h1
