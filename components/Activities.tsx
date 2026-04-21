@@ -15,15 +15,15 @@ const cardVariants: Variants = {
 
 const colorMap: Record<string, { border: string; glow: string; badge: string; dot: string }> = {
   blue: {
-    border: "rgba(59,130,246,0.2)",
-    glow: "rgba(59,130,246,0.25)",
-    badge: "bg-[#EFF6FF] text-[#1D4ED8]",
+    border: "rgba(59,130,246,0.3)",
+    glow: "rgba(59,130,246,0.3)",
+    badge: "bg-blue-500/10 text-[#60A5FA]",
     dot: "bg-[#3B82F6]",
   },
   violet: {
-    border: "rgba(124,58,237,0.2)",
-    glow: "rgba(124,58,237,0.25)",
-    badge: "bg-[#F5F3FF] text-[#4C1D95]",
+    border: "rgba(124,58,237,0.3)",
+    glow: "rgba(124,58,237,0.3)",
+    badge: "bg-violet-500/10 text-[#A78BFA]",
     dot: "bg-[#7C3AED]",
   },
 };
@@ -32,12 +32,12 @@ export default function Activities() {
   return (
     <section
       id="activites"
-      className="relative py-28 px-6 bg-[#F8FAFF] overflow-hidden"
+      className="relative py-28 px-6 bg-[#0a0a1a] overflow-hidden"
       aria-labelledby="activities-heading"
     >
       {/* Background accent */}
       <div
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[150px] opacity-[0.07] pointer-events-none"
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[150px] opacity-20 pointer-events-none"
         style={{ background: "radial-gradient(circle, #7C3AED, #3B82F6)" }}
         aria-hidden="true"
       />
@@ -50,12 +50,12 @@ export default function Activities() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#7C3AED] mb-4 font-[family-name:var(--font-syne)]">
+          <span className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#A78BFA] mb-4 font-[family-name:var(--font-syne)]">
             Ce qu&apos;on fait
           </span>
           <h2
             id="activities-heading"
-            className="text-4xl md:text-5xl font-extrabold text-[#0F0F1A] font-[family-name:var(--font-syne)]"
+            className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-syne)]"
           >
             Nos Activités
           </h2>
@@ -75,10 +75,10 @@ export default function Activities() {
                 key={activity.category}
                 variants={cardVariants}
                 whileHover={{ scale: 1.04, y: -6 }}
-                className="group relative bg-white rounded-2xl p-6 cursor-default transition-all duration-300 overflow-hidden"
+                className="group relative rounded-2xl p-6 cursor-default transition-all duration-300 overflow-hidden bg-[#0f0f2e]"
                 style={{
                   border: `1px solid ${colors.border}`,
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+                  boxShadow: "0 1px 20px rgba(0,0,0,0.3)",
                 }}
               >
                 {/* Glow on hover */}
@@ -95,12 +95,12 @@ export default function Activities() {
                   <div className="text-3xl mb-4" role="img" aria-label={activity.category}>
                     {activity.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-[#0F0F1A] mb-4 font-[family-name:var(--font-syne)]">
+                  <h3 className="text-lg font-bold text-white mb-4 font-[family-name:var(--font-syne)]">
                     {activity.category}
                   </h3>
                   <ul className="space-y-2.5">
                     {activity.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm text-[#0F0F1A]/70">
+                      <li key={item} className="flex items-start gap-2.5 text-sm text-white/60">
                         <span
                           className={`mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full ${colors.dot}`}
                           aria-hidden="true"
