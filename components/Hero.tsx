@@ -50,7 +50,7 @@ export default function Hero() {
     <section
       id="accueil"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0F0F1A]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0F0F1A] pb-48"
       aria-label="Accueil"
     >
       {/* Parallax background layer */}
