@@ -15,9 +15,10 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "La Table Des Loups — Nomeny, 54610",
+  title: "La Table Des Loups — Association de Nomeny",
   description:
-    "Association de quartier engagée autour de la solidarité, l'écologie et le sport. Rejoignez la communauté TDL à Nomeny.",
+    "La Table Des Loups, association de quartier à Nomeny (54610). Solidarité, écologie et sport. Rejoignez-nous !",
+  keywords: ["La Table Des Loups", "TDL", "association Nomeny", "54610"],
   verification: {
     google: "p4aJP5Ekm4aDuraPpWSOO-qFBRaw8Sbxy5GSHkW4-ZY",
   },
