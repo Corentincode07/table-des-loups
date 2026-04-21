@@ -17,12 +17,7 @@ export const teamMembers = [
   { name: "Anouk", role: "Secrétaire & Photographe", color: "violet" },
   { name: "Philemon", role: "Coach sportif", color: "blue" },
   { name: "Matthieu", role: "Communication & Presse", color: "blue" },
-  { name: "Loïs", role: "Technique & Sécurité", color: "violet" },
-  { name: "Léopol", role: "Transport", color: "blue" },
-  { name: "Marie-Paul", role: "Médecin référente", color: "violet" },
-  { name: "Louis", role: "DJ", color: "blue" },
-  { name: "Marc", role: "Barman", color: "violet" },
-  { name: "Lisa", role: "Musique", color: "blue" },
+
 ]
 
 export const values = [
