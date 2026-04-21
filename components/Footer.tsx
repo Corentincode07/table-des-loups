@@ -75,7 +75,9 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/latabledesloups_"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 transition-all duration-200"
                 aria-label="Instagram"
               >
