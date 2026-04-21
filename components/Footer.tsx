@@ -37,15 +37,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" width={64} height={64} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
-              <div>
-                <p className="font-extrabold text-white text-lg leading-none font-[family-name:var(--font-syne)]">
-                  La Table Des Loups
-                </p>
-                <p className="text-[#60A5FA] text-xs font-semibold tracking-widest mt-0.5">
-                  TDL
-                </p>
-              </div>
+              <Image src="/logo.png" width={80} height={80} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
+              <p className="font-extrabold text-white text-lg leading-none font-[family-name:var(--font-syne)]">
+                La Table Des Loups
+              </p>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-[220px]">
               {siteConfig.tagline}

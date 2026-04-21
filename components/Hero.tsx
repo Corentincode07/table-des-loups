@@ -106,11 +106,8 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center gap-6"
         >
-          <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <Image src="/logo.png" width={160} height={160} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
-            <span className="text-[#60A5FA] font-bold text-2xl tracking-[0.3em] uppercase font-[family-name:var(--font-syne)]">
-              TDL
-            </span>
+          <motion.div variants={itemVariants}>
+            <Image src="/logo.png" width={200} height={200} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
           </motion.div>
 
           <motion.h1
