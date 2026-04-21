@@ -24,13 +24,6 @@ export default function Nav() {
       aria-label="Navigation principale"
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#accueil" className="group" aria-label="La Table Des Loups — Accueil">
-          <span className="font-extrabold text-white text-sm tracking-wide group-hover:text-[#60A5FA] transition-colors duration-200 font-[family-name:var(--font-syne)]">
-            La Table Des Loups
-          </span>
-        </a>
-
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1" aria-label="Liens principaux">
           {navLinks.map((link) => (
