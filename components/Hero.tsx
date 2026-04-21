@@ -1,34 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
-
-const WolfLogo = () => (
-  <svg
-    width="72"
-    height="72"
-    viewBox="0 0 72 72"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <polygon points="36,4 52,20 36,16" fill="#3B82F6" opacity="0.9" />
-    <polygon points="36,4 20,20 36,16" fill="#7C3AED" opacity="0.9" />
-    <polygon points="36,16 52,20 44,36" fill="#60A5FA" opacity="0.85" />
-    <polygon points="36,16 20,20 28,36" fill="#4C1D95" opacity="0.85" />
-    <polygon points="36,16 44,36 28,36" fill="#1D4ED8" opacity="0.8" />
-    <polygon points="44,36 52,20 60,40" fill="#3B82F6" opacity="0.7" />
-    <polygon points="28,36 20,20 12,40" fill="#7C3AED" opacity="0.7" />
-    <polygon points="44,36 60,40 52,56" fill="#60A5FA" opacity="0.65" />
-    <polygon points="28,36 12,40 20,56" fill="#4C1D95" opacity="0.65" />
-    <polygon points="28,36 44,36 36,52" fill="#3B82F6" opacity="0.8" />
-    <polygon points="20,56 36,52 28,68" fill="#7C3AED" opacity="0.6" />
-    <polygon points="52,56 36,52 44,68" fill="#3B82F6" opacity="0.6" />
-    <polygon points="36,52 20,56 52,56" fill="#1D4ED8" opacity="0.7" />
-    <circle cx="24" cy="22" r="2" fill="#ffffff" opacity="0.9" />
-    <circle cx="48" cy="22" r="2" fill="#ffffff" opacity="0.9" />
-  </svg>
-);
 
 const GeoPoly = ({
   className,
@@ -133,7 +107,7 @@ export default function Hero() {
           className="flex flex-col items-center gap-6"
         >
           <motion.div variants={itemVariants} className="flex items-center gap-3">
-            <WolfLogo />
+            <Image src="/logo.png" width={72} height={72} alt="Logo La Table Des Loups" />
             <span className="text-[#60A5FA] font-bold text-2xl tracking-[0.3em] uppercase font-[family-name:var(--font-syne)]">
               TDL
             </span>

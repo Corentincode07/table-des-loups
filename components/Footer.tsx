@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { navLinks, siteConfig } from "@/lib/data";
 
 const InstagramIcon = () => (
@@ -20,18 +21,6 @@ const TikTokIcon = () => (
   </svg>
 );
 
-const WolfLogoSmall = () => (
-  <svg width="32" height="32" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <polygon points="36,4 52,20 36,16" fill="#3B82F6" opacity="0.9" />
-    <polygon points="36,4 20,20 36,16" fill="#7C3AED" opacity="0.9" />
-    <polygon points="36,16 52,20 44,36" fill="#60A5FA" opacity="0.85" />
-    <polygon points="36,16 20,20 28,36" fill="#4C1D95" opacity="0.85" />
-    <polygon points="36,16 44,36 28,36" fill="#1D4ED8" opacity="0.8" />
-    <polygon points="28,36 44,36 36,52" fill="#3B82F6" opacity="0.8" />
-    <polygon points="20,56 36,52 28,68" fill="#7C3AED" opacity="0.6" />
-    <polygon points="52,56 36,52 44,68" fill="#3B82F6" opacity="0.6" />
-  </svg>
-);
 
 export default function Footer() {
   return (
@@ -48,7 +37,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <WolfLogoSmall />
+              <Image src="/logo.png" width={32} height={32} alt="Logo La Table Des Loups" />
               <div>
                 <p className="font-extrabold text-white text-lg leading-none font-[family-name:var(--font-syne)]">
                   La Table Des Loups
