@@ -107,7 +107,7 @@ export default function Hero() {
           className="flex flex-col items-center gap-6"
         >
           <motion.div variants={itemVariants}>
-            <Image src="/logo.png" width={200} height={200} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
+            <Image src="/logo.png" width={300} height={300} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
           </motion.div>
 
           <motion.h1

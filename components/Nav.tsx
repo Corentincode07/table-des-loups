@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data";
@@ -26,8 +25,10 @@ export default function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#accueil" className="flex items-center gap-2.5 group" aria-label="La Table Des Loups — Accueil">
-          <Image src="/logo.png" width={40} height={40} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
+        <a href="#accueil" className="group" aria-label="La Table Des Loups — Accueil">
+          <span className="font-extrabold text-white text-sm tracking-wide group-hover:text-[#60A5FA] transition-colors duration-200 font-[family-name:var(--font-syne)]">
+            La Table Des Loups
+          </span>
         </a>
 
         {/* Desktop nav */}
