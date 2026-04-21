@@ -126,8 +126,6 @@ export default function Hero() {
             className="text-[#60A5FA] text-lg md:text-xl font-semibold tracking-widest uppercase font-[family-name:var(--font-syne)]"
           >
             Solidarité • Écologie • Sport
-            <span className="text-white/40 mx-3">—</span>
-            <span className="text-white/60">Nomeny, 54610</span>
           </motion.p>
 
           <motion.p
