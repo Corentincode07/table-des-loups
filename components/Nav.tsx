@@ -23,7 +23,7 @@ export default function Nav() {
       }`}
       aria-label="Navigation principale"
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="relative max-w-6xl mx-auto px-6 h-16 flex items-center justify-center">
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1" aria-label="Liens principaux">
           {navLinks.map((link) => (
@@ -50,7 +50,7 @@ export default function Nav() {
         {/* Mobile menu button */}
         <button
           onClick={() => setMenuOpen((o) => !o)}
-          className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-white/70 hover:bg-white/10 transition-colors"
+          className="md:hidden absolute right-6 w-9 h-9 flex items-center justify-center rounded-lg text-white/70 hover:bg-white/10 transition-colors"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
         >
