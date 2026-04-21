@@ -14,7 +14,7 @@ const itemVariants: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-type Errors = { nom?: string; prenom?: string; email?: string; message?: string };
+type Errors = { nom?: string; prenom?: string; email?: string };
 
 function validate(form: { nom: string; prenom: string; email: string; message: string }): Errors {
   const errors: Errors = {};
@@ -22,8 +22,6 @@ function validate(form: { nom: string; prenom: string; email: string; message: s
   if (!form.prenom.trim()) errors.prenom = "Veuillez renseigner votre prénom";
   if (!form.email.trim() || !form.email.includes("@") || !form.email.includes("."))
     errors.email = "Veuillez renseigner une adresse e-mail valide";
-  if (!form.message.trim() || form.message.trim().length < 10)
-    errors.message = "Veuillez renseigner un message suffisamment détaillé";
   return errors;
 }
 
@@ -216,12 +214,10 @@ export default function Join() {
                     rows={4}
                     value={form.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder-white/25 text-sm focus:outline-none transition-all duration-200 resize-none ${errors.message ? "border-red-500/70 focus:border-red-500" : "border-white/10 focus:border-[#60A5FA]/60"}`}
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-[#60A5FA]/60 transition-all duration-200 resize-none"
                     placeholder="Parlez-nous de vous, de vos motivations..."
                   />
-                  {errors.message && (
-                    <p className="mt-1.5 text-xs text-red-400">{errors.message}</p>
-                  )}
+                  <p className="mt-1.5 text-xs text-white/40">(optionnel)</p>
                 </div>
 
                 <motion.button
