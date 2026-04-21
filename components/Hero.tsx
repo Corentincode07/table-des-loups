@@ -106,8 +106,8 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center gap-6"
         >
-          <motion.div variants={itemVariants} className="mt-16">
-            <Image src="/logo.png" width={420} height={420} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} />
+          <motion.div variants={itemVariants} className="flex justify-center mt-20">
+            <Image src="/logo.png" width={500} height={500} alt="Logo La Table Des Loups" style={{ objectFit: "contain" }} className="mx-auto" />
           </motion.div>
 
           <motion.h1
