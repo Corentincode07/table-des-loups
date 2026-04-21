@@ -14,9 +14,23 @@ const itemVariants: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
+type Errors = { nom?: string; prenom?: string; email?: string; message?: string };
+
+function validate(form: { nom: string; prenom: string; email: string; message: string }): Errors {
+  const errors: Errors = {};
+  if (!form.nom.trim()) errors.nom = "Veuillez renseigner votre nom";
+  if (!form.prenom.trim()) errors.prenom = "Veuillez renseigner votre prénom";
+  if (!form.email.trim() || !form.email.includes("@") || !form.email.includes("."))
+    errors.email = "Veuillez renseigner une adresse e-mail valide";
+  if (!form.message.trim() || form.message.trim().length < 10)
+    errors.message = "Veuillez renseigner un message suffisamment détaillé";
+  return errors;
+}
+
 export default function Join() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
   const [form, setForm] = useState({ nom: "", prenom: "", email: "", message: "" });
+  const [errors, setErrors] = useState<Errors>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -24,6 +38,12 @@ export default function Join() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const errs = validate(form);
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+    setErrors({});
     setStatus("sending");
     await new Promise((r) => setTimeout(r, 1200));
     setStatus("sent");
@@ -150,12 +170,14 @@ export default function Join() {
                         id={field}
                         name={field}
                         type="text"
-                        required
                         value={form[field]}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-[#60A5FA]/60 focus:bg-white/8 transition-all duration-200"
+                        className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder-white/25 text-sm focus:outline-none focus:bg-white/8 transition-all duration-200 ${errors[field] ? "border-red-500/70 focus:border-red-500" : "border-white/10 focus:border-[#60A5FA]/60"}`}
                         placeholder={field === "nom" ? "Dupont" : "Jean"}
                       />
+                      {errors[field] && (
+                        <p className="mt-1.5 text-xs text-red-400">{errors[field]}</p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -171,12 +193,14 @@ export default function Join() {
                     id="email"
                     name="email"
                     type="email"
-                    required
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-[#60A5FA]/60 transition-all duration-200"
+                    className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder-white/25 text-sm focus:outline-none transition-all duration-200 ${errors.email ? "border-red-500/70 focus:border-red-500" : "border-white/10 focus:border-[#60A5FA]/60"}`}
                     placeholder="jean@exemple.fr"
                   />
+                  {errors.email && (
+                    <p className="mt-1.5 text-xs text-red-400">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -192,9 +216,12 @@ export default function Join() {
                     rows={4}
                     value={form.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/25 text-sm focus:outline-none focus:border-[#60A5FA]/60 transition-all duration-200 resize-none"
+                    className={`w-full px-4 py-3 rounded-xl bg-white/5 border text-white placeholder-white/25 text-sm focus:outline-none transition-all duration-200 resize-none ${errors.message ? "border-red-500/70 focus:border-red-500" : "border-white/10 focus:border-[#60A5FA]/60"}`}
                     placeholder="Parlez-nous de vous, de vos motivations..."
                   />
+                  {errors.message && (
+                    <p className="mt-1.5 text-xs text-red-400">{errors.message}</p>
+                  )}
                 </div>
 
                 <motion.button
