@@ -22,7 +22,7 @@ export default function About() {
   return (
     <section
       id="qui-sommes-nous"
-      className="relative py-28 px-6 bg-[#0F0F1A] overflow-hidden"
+      className="relative py-28 px-6 bg-white overflow-hidden"
       aria-labelledby="about-heading"
     >
       {/* Background accent */}
@@ -45,20 +45,20 @@ export default function About() {
             >
               <motion.span
                 variants={textVariants}
-                className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#60A5FA] mb-4 font-[family-name:var(--font-syne)]"
+                className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#3B82F6] mb-4 font-[family-name:var(--font-syne)]"
               >
                 Notre histoire
               </motion.span>
               <motion.h2
                 variants={textVariants}
                 id="about-heading"
-                className="text-4xl md:text-5xl font-extrabold text-white mb-6 font-[family-name:var(--font-syne)]"
+                className="text-4xl md:text-5xl font-extrabold text-[#0F0F1A] mb-6 font-[family-name:var(--font-syne)]"
               >
                 Qui sommes-nous ?
               </motion.h2>
               <motion.p
                 variants={textVariants}
-                className="text-white/60 text-lg leading-relaxed"
+                className="text-[#0F0F1A]/70 text-lg leading-relaxed"
               >
                 Fondée par un groupe d'amis de Nomeny autour d'une table partagée — d'où notre
                 nom — La Table Des Loups est née d'une envie simple : créer du lien, agir
@@ -79,7 +79,7 @@ export default function About() {
                   key={value.title}
                   variants={cardVariants}
                   whileHover={{ scale: 1.03, y: -4 }}
-                  className="group relative p-8 rounded-2xl glass-card-dark cursor-default transition-all duration-300"
+                  className="group relative p-8 rounded-2xl glass-card cursor-default transition-all duration-300"
                   style={{
                     boxShadow:
                       i % 2 === 0
@@ -105,10 +105,10 @@ export default function About() {
                     <div className="text-4xl mb-5" role="img" aria-label={value.title}>
                       {value.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3 font-[family-name:var(--font-syne)]">
+                    <h3 className="text-xl font-bold text-[#0F0F1A] mb-3 font-[family-name:var(--font-syne)]">
                       {value.title}
                     </h3>
-                    <p className="text-white/60 leading-relaxed text-sm">
+                    <p className="text-[#0F0F1A]/65 leading-relaxed text-sm">
                       {value.description}
                     </p>
                     <div
@@ -135,13 +135,13 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="flex flex-col"
           >
-            <span className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#60A5FA] mb-4 font-[family-name:var(--font-syne)]">
+            <span className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#3B82F6] mb-4 font-[family-name:var(--font-syne)]">
               Localisation
             </span>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-2 font-[family-name:var(--font-syne)]">
+            <h3 className="text-4xl md:text-5xl font-extrabold text-[#0F0F1A] mb-2 font-[family-name:var(--font-syne)]">
               Où nous trouver ?
             </h3>
-            <p className="text-white/60 text-sm mb-6">Nomeny, 54610</p>
+            <p className="text-[#0F0F1A]/60 text-sm mb-6">Nomeny, 54610</p>
             <div
               className="rounded-2xl overflow-hidden border border-blue-500/30 p-4 bg-[#0f0f2e] flex-1"
               style={{ boxShadow: "0 0 30px rgba(124,58,237,0.3)" }}
