@@ -107,7 +107,9 @@ export default function Hero() {
           className="flex flex-col items-center gap-2"
         >
           <motion.div variants={itemVariants} className="flex justify-center mt-20">
-            <Image src="/logo.png" width={500} height={500} alt="Logo La Table Des Loups" style={{ objectFit: "contain", background: "transparent", mixBlendMode: "screen" }} className="mx-auto" />
+            <div className="overflow-hidden leading-none">
+              <Image src="/logo.png" width={500} height={500} alt="Logo La Table Des Loups" style={{ objectFit: "contain", background: "transparent", mixBlendMode: "screen", display: "block" }} className="mx-auto border-0" />
+            </div>
           </motion.div>
 
           <motion.h1
