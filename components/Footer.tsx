@@ -37,7 +37,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" width={80} height={80} alt="Logo La Table Des Loups" style={{ objectFit: "contain", mixBlendMode: "lighten", background: "transparent" }} />
+              <Image src="/logo.png" width={80} height={80} alt="Logo La Table Des Loups" style={{ mixBlendMode: "screen" }} />
               <p className="font-extrabold text-white text-lg leading-none font-[family-name:var(--font-syne)]">
                 La Table Des Loups
               </p>
