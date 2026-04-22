@@ -49,7 +49,7 @@ export default function Nav() {
         >
           <div
             className={`relative flex-shrink-0 transition-all duration-300 ${
-              scrolled ? "w-7 h-7" : "w-9 h-9"
+              scrolled ? "w-[50px] h-[50px]" : "w-[50px] h-[50px]"
             }`}
           >
             <Image

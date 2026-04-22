@@ -111,8 +111,8 @@ export default function Hero() {
             <div
               className="relative mx-auto"
               style={{
-                width: "clamp(80px, 12vw, 120px)",
-                height: "clamp(80px, 12vw, 120px)",
+                width: "350px",
+                height: "350px",
               }}
             >
               <Image
