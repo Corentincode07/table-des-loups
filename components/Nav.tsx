@@ -26,7 +26,7 @@ export default function Nav() {
         className={`relative flex items-center justify-between transition-all duration-500 ${
           scrolled
             ? "mx-auto max-w-5xl rounded-2xl px-5 h-14"
-            : "mx-auto max-w-6xl px-6 h-18"
+            : "w-full pl-0 pr-6 h-16"
         }`}
         style={
           scrolled
@@ -44,7 +44,7 @@ export default function Nav() {
         {/* Logo */}
         <a
           href="#accueil"
-          className="flex items-center gap-2.5 group cursor-pointer"
+          className="flex items-center gap-2.5 group cursor-pointer ml-0"
           aria-label="Accueil La Table Des Loups"
         >
           <div
