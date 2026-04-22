@@ -86,24 +86,9 @@ export default function Activities() {
   return (
     <section
       id="activites"
-      className="relative py-32 px-6 overflow-hidden"
-      style={{ background: "#070714" }}
+      className="relative py-32 px-6 overflow-hidden bg-white"
       aria-labelledby="activities-heading"
     >
-      {/* Section divider */}
-      <div className="absolute top-0 inset-x-0 section-divider" aria-hidden="true" />
-
-      {/* Background accent */}
-      <div
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[200px] opacity-[0.12] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #7C3AED, #3B82F6)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[160px] opacity-[0.06] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #3B82F6, transparent)" }}
-        aria-hidden="true"
-      />
 
       <div className="max-w-6xl mx-auto">
         {/* Header */}
@@ -114,12 +99,12 @@ export default function Activities() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#A78BFA] mb-5 font-[family-name:var(--font-syne)]">
+          <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#7C3AED] mb-5 font-[family-name:var(--font-syne)]">
             Ce qu&apos;on fait
           </span>
           <h2
             id="activities-heading"
-            className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-[1.05]"
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 font-[family-name:var(--font-syne)] leading-[1.05]"
           >
             Nos Activités
           </h2>
@@ -142,11 +127,10 @@ export default function Activities() {
                 variants={cardVariants}
                 whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 24 }}
-                className="group relative rounded-2xl overflow-hidden cursor-default"
+                className="group relative rounded-2xl overflow-hidden cursor-default bg-white"
                 style={{
-                  background: "rgba(255,255,255,0.025)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  boxShadow: "0 1px 24px rgba(0,0,0,0.2)",
+                  border: "1px solid rgba(99,102,241,0.15)",
+                  boxShadow: "0 2px 16px rgba(99,102,241,0.07), 0 1px 4px rgba(0,0,0,0.04)",
                 }}
               >
                 {/* Top gradient line */}
@@ -179,7 +163,7 @@ export default function Activities() {
                   </div>
 
                   {/* Category */}
-                  <h3 className="text-base font-bold text-white mb-4 font-[family-name:var(--font-syne)]">
+                  <h3 className="text-base font-bold text-gray-900 mb-4 font-[family-name:var(--font-syne)]">
                     {activity.category}
                   </h3>
 
@@ -188,7 +172,7 @@ export default function Activities() {
                     {activity.items.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2.5 text-[13px] text-white/52 leading-snug"
+                        className="flex items-start gap-2.5 text-[13px] text-gray-700 leading-snug"
                       >
                         <span
                           className="mt-[5px] shrink-0 w-1.5 h-1.5 rounded-full"
