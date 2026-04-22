@@ -104,7 +104,7 @@ export default function Activities() {
           </span>
           <h2
             id="activities-heading"
-            className="text-4xl md:text-5xl font-extrabold text-gray-900 font-[family-name:var(--font-syne)] leading-[1.05]"
+            className="text-4xl md:text-5xl font-bold text-gray-900 font-[family-name:var(--font-playfair)] leading-[1.1]"
           >
             Nos Activités
           </h2>

@@ -93,7 +93,7 @@ export default function Events() {
           </span>
           <h2
             id="events-heading"
-            className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-[1.05]"
+            className="text-4xl md:text-5xl font-bold text-white font-[family-name:var(--font-playfair)] leading-[1.1]"
           >
             Événements à venir
           </h2>

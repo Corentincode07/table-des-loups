@@ -76,7 +76,7 @@ export default function Team() {
           </span>
           <h2
             id="team-heading"
-            className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-[1.05]"
+            className="text-4xl md:text-5xl font-bold text-white font-[family-name:var(--font-playfair)] leading-[1.1]"
           >
             Notre Équipe
           </h2>

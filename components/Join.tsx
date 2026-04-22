@@ -112,7 +112,7 @@ export default function Join() {
           </span>
           <h2
             id="join-heading"
-            className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-[family-name:var(--font-syne)] leading-[1.05]"
+            className="text-4xl md:text-5xl font-bold text-white mb-4 font-[family-name:var(--font-playfair)] leading-[1.1]"
           >
             Nous rejoindre
           </h2>

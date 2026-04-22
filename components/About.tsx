@@ -110,7 +110,7 @@ export default function About() {
               <motion.h2
                 variants={fadeUp}
                 id="about-heading"
-                className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 font-[family-name:var(--font-syne)] leading-[1.05]"
+                className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-[family-name:var(--font-playfair)] leading-[1.1]"
               >
                 Qui sommes-nous ?
               </motion.h2>
@@ -191,7 +191,7 @@ export default function About() {
               <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#3B82F6] mb-4 font-[family-name:var(--font-syne)]">
                 Localisation
               </span>
-              <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 font-[family-name:var(--font-syne)] leading-[1.05]">
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 font-[family-name:var(--font-playfair)] leading-[1.1]">
                 Où nous trouver ?
               </h3>
               <p className="text-gray-500 text-sm mt-3">
