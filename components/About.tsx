@@ -115,10 +115,7 @@ export default function About() {
                 Qui sommes-nous ?
               </motion.h2>
               <motion.p variants={fadeUp} className="text-gray-600 text-base md:text-lg leading-[1.8]">
-                Fondée par un groupe d'amis de Nomeny autour d'une table
-                partagée — d'où notre nom — La Table Des Loups est née d'une
-                envie simple : créer du lien, agir ensemble, et vivre pleinement
-                notre quartier. Solidarité, écologie et sport sont nos piliers.
+                Fondée par un groupe d&apos;amis de Nomeny autour d&apos;une table partagée, c&apos;est de là que vient notre nom. La Table Des Loups est née d&apos;une envie simple : créer du lien, agir ensemble, et vivre pleinement notre quartier. Solidarité, écologie et sport sont nos piliers.
               </motion.p>
             </motion.div>
 
