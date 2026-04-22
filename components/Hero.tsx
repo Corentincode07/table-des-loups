@@ -111,8 +111,8 @@ export default function Hero() {
             <div
               className="relative mx-auto"
               style={{
-                width: "350px",
-                height: "350px",
+                width: "500px",
+                height: "500px",
               }}
             >
               <Image
