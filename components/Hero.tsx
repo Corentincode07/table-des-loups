@@ -33,7 +33,7 @@ export default function Hero() {
     <section
       id="accueil"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-64"
       style={{ background: "#070714" }}
       aria-label="Accueil"
     >
