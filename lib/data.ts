@@ -11,7 +11,7 @@ export const siteConfig = {
 
 export const teamMembers = [
   { name: "Pierre", role: "Président", color: "blue" },
-  { name: "Corentin", role: "Vice-président & Réseaux sociaux", color: "violet" },
+  { name: "Corentin", role: "Vice-président, Réseaux sociaux & Site web", color: "violet" },
   { name: "Elio", role: "Trésorier", color: "blue" },
   { name: "Valentine", role: "Secrétaire", color: "violet" },
   { name: "Anouk", role: "Secrétaire & Photographe", color: "violet" },
