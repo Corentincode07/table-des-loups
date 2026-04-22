@@ -60,7 +60,6 @@ const SECTIONS = [
   },
 ];
 
-const HINTS = ["sport", "équipe", "adhérer", "événements", "Nomeny"];
 
 function findSection(raw: string) {
   const q = norm(raw);
@@ -165,13 +164,6 @@ export default function SearchBar() {
       setMatch(null);
       setNotFound(false);
     }
-  }
-
-  function handleHint(hint: string) {
-    setQuery(hint);
-    setNotFound(false);
-    resolve(hint);
-    inputRef.current?.focus();
   }
 
   function handleClear() {
@@ -323,30 +315,6 @@ export default function SearchBar() {
         )}
       </AnimatePresence>
 
-      {/* ── Hint chips ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: query ? 0 : 1 }}
-        transition={{ duration: 0.3 }}
-        className="flex flex-wrap justify-center gap-2 mt-3 pointer-events-none"
-        style={{ pointerEvents: query ? "none" : "auto" }}
-        aria-hidden={!!query}
-      >
-        {HINTS.map((hint) => (
-          <button
-            key={hint}
-            onClick={() => handleHint(hint)}
-            tabIndex={query ? -1 : 0}
-            className="px-3 py-1 rounded-full text-[11px] text-white/35 hover:text-white/65 transition-all duration-200 cursor-pointer hover:border-white/15"
-            style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.07)",
-            }}
-          >
-            {hint}
-          </button>
-        ))}
-      </motion.div>
     </div>
   );
 }

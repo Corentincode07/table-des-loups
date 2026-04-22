@@ -19,12 +19,6 @@ const itemVariants: Variants = {
   },
 };
 
-const stats = [
-  { value: "7", label: "Membres actifs" },
-  { value: "20€", label: "Cotisation / an" },
-  { value: "4", label: "Domaines d'action" },
-];
-
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -215,32 +209,6 @@ export default function Hero() {
             <SearchBar />
           </motion.div>
 
-          {/* Stats strip */}
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-0 pt-8 w-full max-w-xs mx-auto"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-          >
-            {stats.map((stat, i) => (
-              <div key={stat.label} className="flex items-center flex-1">
-                <div className="flex-1 text-center">
-                  <div className="text-xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-none">
-                    {stat.value}
-                  </div>
-                  <div className="text-[10px] text-white/32 mt-1.5 tracking-wide whitespace-nowrap">
-                    {stat.label}
-                  </div>
-                </div>
-                {i < stats.length - 1 && (
-                  <div
-                    className="w-px h-7 mx-4 flex-shrink-0"
-                    style={{ background: "rgba(255,255,255,0.08)" }}
-                    aria-hidden="true"
-                  />
-                )}
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
       </motion.div>
 
