@@ -111,16 +111,6 @@ export default function About() {
                     <p className="text-[#0F0F1A]/65 leading-relaxed text-sm">
                       {value.description}
                     </p>
-                    <div
-                      className="mt-6 h-0.5 w-12 rounded-full transition-all duration-300 group-hover:w-full"
-                      style={{
-                        background:
-                          i % 2 === 0
-                            ? "linear-gradient(90deg, #3B82F6, #60A5FA)"
-                            : "linear-gradient(90deg, #7C3AED, #60A5FA)",
-                      }}
-                      aria-hidden="true"
-                    />
                   </div>
                 </motion.div>
               ))}
