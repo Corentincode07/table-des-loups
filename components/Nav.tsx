@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { navLinks } from "@/lib/data";
 
 export default function Nav() {
@@ -42,18 +41,9 @@ export default function Nav() {
         {/* Logo */}
         <a
           href="#accueil"
-          className="flex items-center gap-2.5 group cursor-pointer ml-0"
+          className="flex items-center group cursor-pointer ml-0"
           aria-label="Accueil La Table Des Loups"
         >
-          <div className="relative flex-shrink-0 w-[50px] h-[50px]">
-            <Image
-              src="/logo.png"
-              fill
-              alt=""
-              style={{ objectFit: "contain", mixBlendMode: "screen" }}
-              aria-hidden="true"
-            />
-          </div>
           <span
             className={`font-extrabold text-white/85 font-[family-name:var(--font-syne)] tracking-tight transition-all duration-300 ${
               scrolled ? "text-sm" : "text-base"
