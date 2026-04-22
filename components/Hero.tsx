@@ -122,7 +122,7 @@ export default function Hero() {
           <motion.div variants={itemVariants}>
             <h1
               className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.9]"
-              style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}
+              style={{ fontSize: "clamp(4rem, 10vw, 7rem)" }}
             >
               La Table Des Loups
             </h1>
