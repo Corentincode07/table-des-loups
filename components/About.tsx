@@ -141,7 +141,6 @@ export default function About() {
             <h3 className="text-4xl md:text-5xl font-extrabold text-[#0F0F1A] mb-2 font-[family-name:var(--font-syne)]">
               Où nous trouver ?
             </h3>
-            <p className="text-[#0F0F1A]/60 text-sm mb-6">Nomeny, 54610</p>
             <div
               className="rounded-2xl overflow-hidden border border-blue-500/30 p-4 bg-[#0f0f2e] flex-1"
               style={{ boxShadow: "0 0 30px rgba(124,58,237,0.3)" }}
