@@ -173,21 +173,6 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* ── Scroll indicator ── */}
-      <motion.div
-        style={{ opacity: contentOpacity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-        aria-hidden="true"
-      >
-        <span className="text-white/22 text-[9px] tracking-[0.35em] uppercase font-[family-name:var(--font-syne)]">
-          Défiler
-        </span>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-          className="w-px h-10 bg-gradient-to-b from-white/25 to-transparent"
-        />
-      </motion.div>
     </section>
   );
 }
