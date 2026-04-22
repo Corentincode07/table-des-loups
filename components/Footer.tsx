@@ -40,7 +40,7 @@ const socialLinks = [
   },
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/profile.php?id=61566081459260",
     icon: FacebookIcon,
     hoverColor: "#1877F2",
   },
