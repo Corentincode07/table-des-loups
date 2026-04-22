@@ -98,6 +98,7 @@ export const membershipBenefits = [
 export const navLinks = [
   { label: "Accueil", href: "#accueil" },
   { label: "Activités", href: "#activites" },
+  { label: "Événements", href: "#events" },
   { label: "Équipe", href: "#equipe" },
   { label: "Nous rejoindre", href: "#rejoindre" },
 ]

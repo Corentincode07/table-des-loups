@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Events() {
   return (
     <section
-      id="evenements"
+      id="events"
       className="relative py-28 px-6 bg-[#0F0F1A] overflow-hidden"
       aria-labelledby="events-heading"
     >
