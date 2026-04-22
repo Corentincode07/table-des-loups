@@ -84,14 +84,6 @@ export default function Hero() {
           }}
         />
 
-        {/* Horizontal gradient line accent */}
-        <div
-          className="absolute top-[55%] left-0 right-0 h-px opacity-20"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(96,165,250,0.6), rgba(167,139,250,0.6), transparent)",
-          }}
-        />
       </motion.div>
 
       {/* ── Main content ── */}
