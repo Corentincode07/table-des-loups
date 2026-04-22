@@ -1,47 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-const events = [
-  {
-    day: "15",
-    month: "Mai",
-    title: "Tournoi de sport",
-    description: "Venez participer à notre tournoi multisports ouvert à tous les niveaux",
-    location: "Nomeny",
-    category: "Sport",
-    color: "blue",
-  },
-  {
-    day: "22",
-    month: "Mai",
-    title: "Tartiflette géante",
-    description: "Grand repas solidaire pour récolter des fonds pour l'association",
-    location: "Nomeny",
-    category: "Événement",
-    color: "violet",
-  },
-  {
-    day: "1",
-    month: "Juin",
-    title: "Rando écolo",
-    description: "Randonnée découverte de la nature autour de Nomeny avec ramassage de déchets",
-    location: "Nomeny",
-    category: "Solidarité",
-    color: "blue",
-  },
-];
-
-const categoryStyles: Record<string, string> = {
-  Sport: "bg-blue-500/15 text-[#60A5FA] border border-blue-500/30",
-  Événement: "bg-violet-500/15 text-[#A78BFA] border border-violet-500/30",
-  Solidarité: "bg-blue-500/15 text-[#60A5FA] border border-blue-500/30",
-};
+import { motion } from "framer-motion";
 
 export default function Events() {
   return (
@@ -63,6 +22,7 @@ export default function Events() {
       />
 
       <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,106 +41,62 @@ export default function Events() {
           </h2>
         </motion.div>
 
+        {/* Announcement card */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ staggerChildren: 0.12 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
-        >
-          {events.map((event) => (
-            <motion.div
-              key={event.title}
-              variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -4 }}
-              className="group relative rounded-2xl p-6 bg-[#0f0f2e] cursor-default transition-all duration-300 overflow-hidden"
-              style={{
-                border: event.color === "blue"
-                  ? "1px solid rgba(59,130,246,0.25)"
-                  : "1px solid rgba(124,58,237,0.25)",
-              }}
-            >
-              {/* Glow on hover */}
-              <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-                style={{
-                  boxShadow: event.color === "blue"
-                    ? "0 0 35px rgba(59,130,246,0.25), inset 0 0 20px rgba(59,130,246,0.05)"
-                    : "0 0 35px rgba(124,58,237,0.25), inset 0 0 20px rgba(124,58,237,0.05)",
-                  border: event.color === "blue"
-                    ? "1px solid rgba(59,130,246,0.5)"
-                    : "1px solid rgba(124,58,237,0.5)",
-                }}
-                aria-hidden="true"
-              />
-
-              <div className="relative z-10">
-                {/* Date badge */}
-                <div
-                  className="inline-flex flex-col items-center justify-center w-14 h-14 rounded-xl mb-5 font-[family-name:var(--font-syne)]"
-                  style={{
-                    background: event.color === "blue"
-                      ? "linear-gradient(135deg, rgba(59,130,246,0.2), rgba(96,165,250,0.1))"
-                      : "linear-gradient(135deg, rgba(124,58,237,0.2), rgba(167,139,250,0.1))",
-                    border: event.color === "blue"
-                      ? "1px solid rgba(59,130,246,0.3)"
-                      : "1px solid rgba(124,58,237,0.3)",
-                  }}
-                >
-                  <span className="text-xl font-extrabold text-white leading-none">{event.day}</span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-white/50">{event.month}</span>
-                </div>
-
-                <h3 className="text-lg font-bold text-white mb-2 font-[family-name:var(--font-syne)]">
-                  {event.title}
-                </h3>
-                <p className="text-white/55 text-sm leading-relaxed mb-5">
-                  {event.description}
-                </p>
-
-                <div className="flex items-center justify-between gap-2 flex-wrap">
-                  <div className="flex items-center gap-1.5 text-white/40 text-xs">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                    {event.location}
-                  </div>
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${categoryStyles[event.category]}`}>
-                    {event.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom accent */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{
-                  background: event.color === "blue"
-                    ? "linear-gradient(90deg, #3B82F6, #60A5FA)"
-                    : "linear-gradient(90deg, #7C3AED, #A78BFA)",
-                }}
-                aria-hidden="true"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="max-w-2xl mx-auto mb-12 rounded-2xl p-8 text-center bg-[#0f0f2e]"
+          style={{
+            border: "1px solid rgba(96,165,250,0.3)",
+            boxShadow: "0 0 40px rgba(124,58,237,0.2), 0 0 80px rgba(59,130,246,0.1)",
+          }}
         >
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="px-8 py-3.5 rounded-xl font-bold text-white text-sm tracking-wide font-[family-name:var(--font-syne)] border border-white/15 bg-white/5 hover:bg-white/10 transition-all duration-200"
+          <div
+            className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
+            style={{ background: "linear-gradient(135deg, #3B82F6, #7C3AED)" }}
           >
-            Voir tous les événements
-          </motion.button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </div>
+          <p className="text-white/80 text-lg leading-relaxed font-[family-name:var(--font-syne)]">
+            Les prochains événements seront annoncés très bientôt,{" "}
+            <span className="text-[#60A5FA] font-semibold">restez connectés !</span>
+          </p>
         </motion.div>
+
+        {/* Placeholder cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 + i * 0.1 }}
+              className="rounded-2xl p-6 bg-[#0f0f2e] flex flex-col items-center justify-center min-h-[180px]"
+              style={{
+                border: "1px solid rgba(96,165,250,0.1)",
+              }}
+            >
+              <span
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white/40 font-[family-name:var(--font-syne)]"
+                style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full bg-[#60A5FA] animate-pulse"
+                  aria-hidden="true"
+                />
+                À venir...
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
