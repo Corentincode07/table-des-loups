@@ -46,7 +46,7 @@ const socialLinks = [
   },
   {
     label: "TikTok",
-    href: "#",
+    href: "https://www.tiktok.com/@latabledesloups_",
     icon: TikTokIcon,
     hoverColor: "#ffffff",
   },
