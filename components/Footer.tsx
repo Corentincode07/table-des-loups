@@ -135,7 +135,7 @@ export default function Footer() {
               {[
                 { label: "Statut", value: siteConfig.loi },
                 { label: "Ville", value: siteConfig.location },
-                { label: "Cotisation", value: siteConfig.cotisation },
+                { label: "Cotisation", value: "20€ — une seule fois" },
               ].map(({ label, value }) => (
                 <div key={label}>
                   <p className="text-white/28 text-xs mb-0.5">{label}</p>
@@ -152,7 +152,7 @@ export default function Footer() {
                 boxShadow: "0 0 20px rgba(59,130,246,0.2)",
               }}
             >
-              Adhérer — 20€/an
+              Adhérer — 20€
             </a>
           </div>
         </div>
