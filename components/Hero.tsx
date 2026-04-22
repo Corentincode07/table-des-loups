@@ -111,7 +111,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Title */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="mb-8">
             <h1
               className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.9]"
               style={{ fontSize: "clamp(4rem, 10vw, 7rem)" }}
