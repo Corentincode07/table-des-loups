@@ -33,7 +33,7 @@ export default function Hero() {
     <section
       id="accueil"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-64"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24"
       style={{ background: "#070714" }}
       aria-label="Accueil"
     >
@@ -205,7 +205,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Search bar */}
-          <motion.div variants={itemVariants} className="w-full max-w-md">
+          <motion.div variants={itemVariants} className="w-full max-w-md -mt-3">
             <SearchBar />
           </motion.div>
 
