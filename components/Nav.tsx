@@ -41,7 +41,7 @@ export default function Nav() {
         {/* Logo */}
         <a
           href="#accueil"
-          className="flex items-center group cursor-pointer ml-0"
+          className="flex items-center group cursor-pointer pl-4"
           aria-label="Accueil La Table Des Loups"
         >
           <span
