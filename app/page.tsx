@@ -6,6 +6,7 @@ import Activities from "@/components/Activities";
 import Team from "@/components/Team";
 import Join from "@/components/Join";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
 <Join />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
