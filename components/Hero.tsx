@@ -98,23 +98,17 @@ export default function Hero() {
       {/* ── Main content ── */}
       <motion.div
         style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full"
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto w-full"
       >
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-3"
         >
           {/* Logo */}
-          <motion.div variants={itemVariants} className="mt-4 mb-2">
-            <div
-              className="relative mx-auto"
-              style={{
-                width: "500px",
-                height: "500px",
-              }}
-            >
+          <motion.div variants={itemVariants}>
+            <div className="relative mx-auto" style={{ width: 200, height: 200 }}>
               <Image
                 src="/logo.png"
                 fill
@@ -125,41 +119,20 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Location badge */}
-          <motion.div variants={itemVariants}>
-            <span
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase text-[#93C5FD]"
-              style={{
-                background: "rgba(59,130,246,0.07)",
-                border: "1px solid rgba(96,165,250,0.2)",
-                boxShadow: "0 0 20px rgba(59,130,246,0.08)",
-              }}
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-[#60A5FA]"
-                style={{ boxShadow: "0 0 6px rgba(96,165,250,0.8)" }}
-                aria-hidden="true"
-              />
-              Nomeny · Meurthe-et-Moselle · Loi 1901
-            </span>
-          </motion.div>
-
-          {/* Headline */}
+          {/* Title */}
           <motion.div variants={itemVariants}>
             <h1
-              className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.88]"
-              style={{ fontSize: "clamp(3.5rem, 10vw, 8rem)" }}
+              className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.9]"
+              style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)" }}
             >
-              La Table
-              <br />
-              Des Loups
+              La Table Des Loups
             </h1>
           </motion.div>
 
-          {/* Tagline */}
+          {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-white/38 text-xs tracking-[0.38em] uppercase font-[family-name:var(--font-syne)]"
+            className="text-white/40 text-xs tracking-[0.35em] uppercase font-[family-name:var(--font-syne)]"
           >
             Solidarité · Écologie · Sport
           </motion.p>
@@ -167,11 +140,10 @@ export default function Hero() {
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-white/58 text-base md:text-lg max-w-[480px] leading-[1.75]"
+            className="text-white/58 text-sm md:text-base max-w-md leading-relaxed"
           >
             Une association de quartier née autour d'une table partagée.
-            Ensemble, nous construisons un Nomeny plus solidaire, plus vert et
-            plus vivant.
+            Ensemble, nous construisons un Nomeny plus solidaire, plus vert et plus vivant.
           </motion.p>
 
           {/* CTAs */}
@@ -181,24 +153,19 @@ export default function Hero() {
           >
             <a
               href="#rejoindre"
-              className="group relative px-8 py-3.5 rounded-2xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+              className="group relative px-7 py-2.5 rounded-2xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
               style={{
                 background: "linear-gradient(135deg, #3B82F6 0%, #5B21B6 100%)",
-                boxShadow:
-                  "0 0 35px rgba(59,130,246,0.3), 0 0 80px rgba(124,58,237,0.12), inset 0 1px 0 rgba(255,255,255,0.15)",
+                boxShadow: "0 0 30px rgba(59,130,246,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
               }}
             >
               <span className="relative z-10 tracking-wide">Nous rejoindre</span>
-              {/* Shimmer sweep */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/12 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </a>
             <a
               href="#activites"
-              className="px-8 py-3.5 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 transition-all duration-300 cursor-pointer tracking-wide"
-              style={{
-                backdropFilter: "blur(8px)",
-                background: "rgba(255,255,255,0.025)",
-              }}
+              className="px-7 py-2.5 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 transition-all duration-300 cursor-pointer tracking-wide"
+              style={{ backdropFilter: "blur(8px)", background: "rgba(255,255,255,0.025)" }}
             >
               Nos activités
             </a>
@@ -208,7 +175,6 @@ export default function Hero() {
           <motion.div variants={itemVariants} className="w-full max-w-md">
             <SearchBar />
           </motion.div>
-
         </motion.div>
       </motion.div>
 
