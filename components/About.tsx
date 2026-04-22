@@ -86,24 +86,9 @@ export default function About() {
   return (
     <section
       id="qui-sommes-nous"
-      className="relative py-32 px-6 overflow-hidden"
-      style={{ background: "#0C0C20" }}
+      className="relative py-32 px-6 overflow-hidden bg-white"
       aria-labelledby="about-heading"
     >
-      {/* Section divider */}
-      <div className="absolute top-0 inset-x-0 section-divider" aria-hidden="true" />
-
-      {/* Background accents */}
-      <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[200px] opacity-[0.07] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #3B82F6, #7C3AED)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[160px] opacity-[0.05] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #7C3AED, transparent)" }}
-        aria-hidden="true"
-      />
 
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
@@ -118,18 +103,18 @@ export default function About() {
             >
               <motion.span
                 variants={fadeUp}
-                className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#60A5FA] mb-5 font-[family-name:var(--font-syne)]"
+                className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#3B82F6] mb-5 font-[family-name:var(--font-syne)]"
               >
                 Notre histoire
               </motion.span>
               <motion.h2
                 variants={fadeUp}
                 id="about-heading"
-                className="text-4xl md:text-5xl font-extrabold text-white mb-6 font-[family-name:var(--font-syne)] leading-[1.05]"
+                className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 font-[family-name:var(--font-syne)] leading-[1.05]"
               >
                 Qui sommes-nous ?
               </motion.h2>
-              <motion.p variants={fadeUp} className="text-white/52 text-base md:text-lg leading-[1.8]">
+              <motion.p variants={fadeUp} className="text-gray-600 text-base md:text-lg leading-[1.8]">
                 Fondée par un groupe d'amis de Nomeny autour d'une table
                 partagée — d'où notre nom — La Table Des Loups est née d'une
                 envie simple : créer du lien, agir ensemble, et vivre pleinement
@@ -154,10 +139,10 @@ export default function About() {
                     variants={fadeUp}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                    className="group flex items-start gap-5 p-5 rounded-2xl cursor-default transition-all duration-300"
+                    className="group flex items-start gap-5 p-5 rounded-2xl cursor-default transition-all duration-300 bg-white"
                     style={{
-                      background: "rgba(255,255,255,0.025)",
-                      border: "1px solid rgba(255,255,255,0.07)",
+                      border: "1px solid rgba(0,0,0,0.08)",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
                     }}
                   >
                     {/* Icon */}
@@ -172,10 +157,10 @@ export default function About() {
                     </div>
 
                     <div>
-                      <h3 className="text-[15px] font-bold text-white mb-1 font-[family-name:var(--font-syne)]">
+                      <h3 className="text-[15px] font-bold text-gray-900 mb-1 font-[family-name:var(--font-syne)]">
                         {value.title}
                       </h3>
-                      <p className="text-white/48 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-sm leading-relaxed">
                         {value.description}
                       </p>
                     </div>
@@ -203,13 +188,13 @@ export default function About() {
             className="flex flex-col gap-6"
           >
             <div>
-              <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#60A5FA] mb-4 font-[family-name:var(--font-syne)]">
+              <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#3B82F6] mb-4 font-[family-name:var(--font-syne)]">
                 Localisation
               </span>
-              <h3 className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-[1.05]">
+              <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 font-[family-name:var(--font-syne)] leading-[1.05]">
                 Où nous trouver ?
               </h3>
-              <p className="text-white/38 text-sm mt-3">
+              <p className="text-gray-500 text-sm mt-3">
                 Nomeny, Meurthe-et-Moselle — 54610
               </p>
             </div>
