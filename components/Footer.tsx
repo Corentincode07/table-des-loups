@@ -2,7 +2,17 @@ import Image from "next/image";
 import { navLinks, siteConfig } from "@/lib/data";
 
 const InstagramIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
     <circle cx="12" cy="12" r="3" />
     <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -10,56 +20,104 @@ const InstagramIcon = () => (
 );
 
 const FacebookIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
   </svg>
 );
 
 const TikTokIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.79a8.18 8.18 0 0 0 4.78 1.52V6.86a4.85 4.85 0 0 1-1.01-.17z" />
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.79a8.18 8.18 0 004.78 1.52V6.86a4.85 4.85 0 01-1.01-.17z" />
   </svg>
 );
 
+const socialLinks = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/latabledesloups_",
+    icon: InstagramIcon,
+    hoverColor: "#E1306C",
+  },
+  {
+    label: "Facebook",
+    href: "#",
+    icon: FacebookIcon,
+    hoverColor: "#1877F2",
+  },
+  {
+    label: "TikTok",
+    href: "#",
+    icon: TikTokIcon,
+    hoverColor: "#ffffff",
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080810] border-t border-white/5" aria-label="Pied de page">
-      {/* Top divider glow */}
-      <div
-        className="h-px w-full"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(59,130,246,0.4), rgba(124,58,237,0.4), transparent)" }}
-        aria-hidden="true"
-      />
+    <footer style={{ background: "#030308" }} aria-label="Pied de page">
+      {/* Top gradient divider */}
+      <div className="section-divider" aria-hidden="true" />
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" width={80} height={80} alt="Logo La Table Des Loups" style={{ objectFit: "contain", background: "transparent", mixBlendMode: "screen", display: "block" }} />
-              <p className="font-extrabold text-white text-lg leading-none font-[family-name:var(--font-syne)]">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="relative w-10 h-10 flex-shrink-0">
+                <Image
+                  src="/logo.png"
+                  fill
+                  alt="Logo La Table Des Loups"
+                  style={{ objectFit: "contain", mixBlendMode: "screen" }}
+                />
+              </div>
+              <p className="font-extrabold text-white/85 text-base leading-tight font-[family-name:var(--font-syne)] tracking-tight">
                 La Table Des Loups
               </p>
             </div>
-            <p className="text-white/40 text-sm leading-relaxed max-w-[220px]">
+            <p className="text-white/35 text-sm leading-relaxed max-w-[220px]">
               {siteConfig.tagline}
               <br />
               {siteConfig.location}
             </p>
+
+            {/* Social icons */}
+            <div className="flex gap-2.5 mt-7">
+              {socialLinks.map(({ label, href, icon: Icon, hoverColor }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="group w-9 h-9 rounded-xl flex items-center justify-center text-white/40 transition-all duration-200 cursor-pointer"
+                  style={{
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                  aria-label={label}
+                >
+                  <span
+                    className="transition-colors duration-200 group-hover:text-white"
+                    style={{ color: "inherit" }}
+                  >
+                    <Icon />
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Navigation */}
           <nav aria-label="Navigation du pied de page">
-            <p className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-5 font-[family-name:var(--font-syne)]">
+            <p className="text-white/28 text-[10px] font-semibold uppercase tracking-[0.25em] mb-6 font-[family-name:var(--font-syne)]">
               Navigation
             </p>
-            <ul className="space-y-3">
+            <ul className="space-y-3.5">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-white/60 text-sm hover:text-[#60A5FA] transition-colors duration-200"
+                    className="text-white/50 text-sm hover:text-white/85 transition-colors duration-200 cursor-pointer"
                   >
                     {link.label}
                   </a>
@@ -68,48 +126,44 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Social */}
+          {/* Association info */}
           <div>
-            <p className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-5 font-[family-name:var(--font-syne)]">
-              Réseaux sociaux
+            <p className="text-white/28 text-[10px] font-semibold uppercase tracking-[0.25em] mb-6 font-[family-name:var(--font-syne)]">
+              Association
             </p>
-            <div className="flex gap-4">
-              <a
-                href="https://www.instagram.com/latabledesloups_"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-[#E1306C]/50 hover:bg-[#E1306C]/10 transition-all duration-200"
-                aria-label="Instagram"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-[#1877F2]/50 hover:bg-[#1877F2]/10 transition-all duration-200"
-                aria-label="Facebook"
-              >
-                <FacebookIcon />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all duration-200"
-                aria-label="TikTok"
-              >
-                <TikTokIcon />
-              </a>
+            <div className="space-y-3.5">
+              {[
+                { label: "Statut", value: siteConfig.loi },
+                { label: "Ville", value: siteConfig.location },
+                { label: "Cotisation", value: siteConfig.cotisation },
+              ].map(({ label, value }) => (
+                <div key={label}>
+                  <p className="text-white/28 text-xs mb-0.5">{label}</p>
+                  <p className="text-white/55 text-sm">{value}</p>
+                </div>
+              ))}
             </div>
+
+            <a
+              href="#rejoindre"
+              className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-105 cursor-pointer"
+              style={{
+                background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
+                boxShadow: "0 0 20px rgba(59,130,246,0.2)",
+              }}
+            >
+              Adhérer — 20€/an
+            </a>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div
-          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-white/25 text-xs"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/22 text-xs"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
         >
           <p>{siteConfig.loi} — {siteConfig.location}</p>
-          <p>
-            © {new Date().getFullYear()} La Table Des Loups. Tous droits réservés.
-          </p>
+          <p>© {new Date().getFullYear()} La Table Des Loups. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

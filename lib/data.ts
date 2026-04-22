@@ -17,24 +17,23 @@ export const teamMembers = [
   { name: "Anouk", role: "Secrétaire & Photographe", color: "violet" },
   { name: "Philemon", role: "Coach sportif", color: "blue" },
   { name: "Matthieu", role: "Communication & Presse", color: "blue" },
-
 ]
 
 export const values = [
   {
-    icon: "🤝",
+    icon: "handshake",
     title: "Solidarité",
     description:
       "Entraide et bienveillance au cœur de chaque action. Personne ne devrait rester seul face à ses difficultés.",
   },
   {
-    icon: "🌿",
+    icon: "leaf",
     title: "Écologie",
     description:
       "Agir localement pour un impact global. Randos vertes, troc d'objets, consommation responsable.",
   },
   {
-    icon: "🏅",
+    icon: "trophy",
     title: "Sport",
     description:
       "Le sport comme vecteur de lien social. Tournois, olympiades et compétitions pour tous les niveaux.",
@@ -44,7 +43,7 @@ export const values = [
 export const activities = [
   {
     category: "Sport",
-    icon: "🏆",
+    icon: "trophy",
     color: "blue",
     items: [
       "Tournois & olympiades",
@@ -56,7 +55,7 @@ export const activities = [
   },
   {
     category: "Solidarité",
-    icon: "🤝",
+    icon: "heart",
     color: "violet",
     items: [
       "Repas SDF (Too Good To Go)",
@@ -68,7 +67,7 @@ export const activities = [
   },
   {
     category: "Événements",
-    icon: "🎉",
+    icon: "star",
     color: "blue",
     items: [
       "Soirée poker",
@@ -81,7 +80,7 @@ export const activities = [
   },
   {
     category: "Culture",
-    icon: "📚",
+    icon: "book",
     color: "violet",
     items: ["Cours d'anglais", "Jeux de société"],
   },
@@ -104,7 +103,7 @@ export const navLinks = [
 ]
 
 export const socialLinks = [
-  { label: "Instagram", href: "#", icon: "instagram" },
+  { label: "Instagram", href: "https://www.instagram.com/latabledesloups_", icon: "instagram" },
   { label: "Facebook", href: "#", icon: "facebook" },
   { label: "TikTok", href: "#", icon: "tiktok" },
 ]

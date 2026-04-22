@@ -3,38 +3,111 @@
 import { motion, type Variants } from "framer-motion";
 import { values } from "@/lib/data";
 
+/* ── SVG icon components ── */
+
+const HandshakeIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M20.42 4.58a5.4 5.4 0 00-7.65 0l-.77.78-.77-.78a5.4 5.4 0 00-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" />
+  </svg>
+);
+
+const LeafIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M11 20A7 7 0 014 13c0-3.87 3.13-7 7-7h5a7 7 0 017 7 7 7 0 01-7 7z" />
+    <path d="M11 20V13" />
+    <path d="M8 17l3-3 3 3" />
+  </svg>
+);
+
+const TrophyIcon = () => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M6 9H4.5a2.5 2.5 0 010-5H6" />
+    <path d="M18 9h1.5a2.5 2.5 0 000-5H18" />
+    <path d="M4 22h16" />
+    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+    <path d="M18 2H6v7a6 6 0 0012 0V2z" />
+  </svg>
+);
+
+const iconComponents: Record<string, React.FC> = {
+  handshake: HandshakeIcon,
+  leaf: LeafIcon,
+  trophy: TrophyIcon,
+};
+
+const iconGradients = [
+  { from: "#3B82F6", to: "#60A5FA", glow: "rgba(59,130,246,0.3)" },
+  { from: "#10B981", to: "#34D399", glow: "rgba(16,185,129,0.3)" },
+  { from: "#7C3AED", to: "#A78BFA", glow: "rgba(124,58,237,0.3)" },
+];
+
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const textVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
 };
 
 export default function About() {
   return (
     <section
       id="qui-sommes-nous"
-      className="relative py-28 px-6 bg-white overflow-hidden"
+      className="relative py-32 px-6 overflow-hidden"
+      style={{ background: "#0C0C20" }}
       aria-labelledby="about-heading"
     >
-      {/* Background accent */}
+      {/* Section divider */}
+      <div className="absolute top-0 inset-x-0 section-divider" aria-hidden="true" />
+
+      {/* Background accents */}
       <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[150px] opacity-10 pointer-events-none"
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[200px] opacity-[0.07] pointer-events-none"
         style={{ background: "radial-gradient(circle, #3B82F6, #7C3AED)" }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[160px] opacity-[0.05] pointer-events-none"
+        style={{ background: "radial-gradient(circle, #7C3AED, transparent)" }}
         aria-hidden="true"
       />
 
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
-          {/* Left: text + values */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          {/* ── Left: story + values ── */}
           <div>
             <motion.div
               initial="hidden"
@@ -44,106 +117,120 @@ export default function About() {
               className="mb-12"
             >
               <motion.span
-                variants={textVariants}
-                className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#3B82F6] mb-4 font-[family-name:var(--font-syne)]"
+                variants={fadeUp}
+                className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#60A5FA] mb-5 font-[family-name:var(--font-syne)]"
               >
                 Notre histoire
               </motion.span>
               <motion.h2
-                variants={textVariants}
+                variants={fadeUp}
                 id="about-heading"
-                className="text-4xl md:text-5xl font-extrabold text-[#0F0F1A] mb-6 font-[family-name:var(--font-syne)]"
+                className="text-4xl md:text-5xl font-extrabold text-white mb-6 font-[family-name:var(--font-syne)] leading-[1.05]"
               >
                 Qui sommes-nous ?
               </motion.h2>
-              <motion.p
-                variants={textVariants}
-                className="text-[#0F0F1A]/70 text-lg leading-relaxed"
-              >
-                Fondée par un groupe d'amis de Nomeny autour d'une table partagée — d'où notre
-                nom — La Table Des Loups est née d'une envie simple : créer du lien, agir
-                ensemble, et vivre pleinement notre quartier. Solidarité, écologie et sport
-                sont nos piliers.
+              <motion.p variants={fadeUp} className="text-white/52 text-base md:text-lg leading-[1.8]">
+                Fondée par un groupe d'amis de Nomeny autour d'une table
+                partagée — d'où notre nom — La Table Des Loups est née d'une
+                envie simple : créer du lien, agir ensemble, et vivre pleinement
+                notre quartier. Solidarité, écologie et sport sont nos piliers.
               </motion.p>
             </motion.div>
 
+            {/* Values */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
               variants={containerVariants}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+              className="space-y-3"
             >
-              {values.map((value, i) => (
-                <motion.div
-                  key={value.title}
-                  variants={cardVariants}
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  className="group relative p-8 rounded-2xl glass-card cursor-default transition-all duration-300"
-                  style={{
-                    boxShadow:
-                      i % 2 === 0
-                        ? "0 0 0 1px rgba(59,130,246,0.15)"
-                        : "0 0 0 1px rgba(124,58,237,0.15)",
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              {values.map((value, i) => {
+                const Icon = iconComponents[value.icon] ?? HandshakeIcon;
+                const grad = iconGradients[i];
+                return (
+                  <motion.div
+                    key={value.title}
+                    variants={fadeUp}
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    className="group flex items-start gap-5 p-5 rounded-2xl cursor-default transition-all duration-300"
                     style={{
-                      boxShadow:
-                        i % 2 === 0
-                          ? "0 0 40px rgba(59,130,246,0.2), inset 0 0 40px rgba(59,130,246,0.05)"
-                          : "0 0 40px rgba(124,58,237,0.2), inset 0 0 40px rgba(124,58,237,0.05)",
-                      border:
-                        i % 2 === 0
-                          ? "1px solid rgba(59,130,246,0.4)"
-                          : "1px solid rgba(124,58,237,0.4)",
+                      background: "rgba(255,255,255,0.025)",
+                      border: "1px solid rgba(255,255,255,0.07)",
                     }}
-                    aria-hidden="true"
-                  />
-                  <div className="relative z-10">
-                    <div className="text-4xl mb-5" role="img" aria-label={value.title}>
-                      {value.icon}
+                  >
+                    {/* Icon */}
+                    <div
+                      className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300"
+                      style={{
+                        background: `linear-gradient(135deg, ${grad.from}, ${grad.to})`,
+                        boxShadow: `0 4px 16px ${grad.glow}`,
+                      }}
+                    >
+                      <Icon />
                     </div>
-                    <h3 className="text-xl font-bold text-[#0F0F1A] mb-3 font-[family-name:var(--font-syne)]">
-                      {value.title}
-                    </h3>
-                    <p className="text-[#0F0F1A]/65 leading-relaxed text-sm">
-                      {value.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+
+                    <div>
+                      <h3 className="text-[15px] font-bold text-white mb-1 font-[family-name:var(--font-syne)]">
+                        {value.title}
+                      </h3>
+                      <p className="text-white/48 text-sm leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+
+                    {/* Subtle right-edge accent */}
+                    <div
+                      className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-8 rounded-l-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: `linear-gradient(180deg, ${grad.from}, ${grad.to})`,
+                      }}
+                      aria-hidden="true"
+                    />
+                  </motion.div>
+                );
+              })}
             </motion.div>
           </div>
 
-          {/* Right: map */}
+          {/* ── Right: map ── */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col gap-6"
           >
-            <span className="inline-block text-sm font-semibold tracking-[0.25em] uppercase text-[#3B82F6] mb-4 font-[family-name:var(--font-syne)]">
-              Localisation
-            </span>
-            <h3 className="text-4xl md:text-5xl font-extrabold text-[#0F0F1A] mb-2 font-[family-name:var(--font-syne)]">
-              Où nous trouver ?
-            </h3>
+            <div>
+              <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#60A5FA] mb-4 font-[family-name:var(--font-syne)]">
+                Localisation
+              </span>
+              <h3 className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-[1.05]">
+                Où nous trouver ?
+              </h3>
+              <p className="text-white/38 text-sm mt-3">
+                Nomeny, Meurthe-et-Moselle — 54610
+              </p>
+            </div>
+
             <div
-              className="rounded-2xl overflow-hidden border border-blue-500/30 p-4 bg-[#0f0f2e] flex-1"
-              style={{ boxShadow: "0 0 30px rgba(124,58,237,0.3)" }}
+              className="rounded-2xl overflow-hidden"
+              style={{
+                border: "1px solid rgba(59,130,246,0.18)",
+                boxShadow:
+                  "0 0 60px rgba(124,58,237,0.1), 0 0 120px rgba(59,130,246,0.05)",
+              }}
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41983.54873276361!2d6.191466850901038!3d48.87781421148403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794eab5e309a6e5%3A0x40a5fb99a3af5a0!2s54610%20Nomeny!5e1!3m2!1sfr!2sfr!4v1776842191976!5m2!1sfr!2sfr"
                 width="100%"
-                height="100%"
-                style={{ border: 0, display: "block", minHeight: "360px", borderRadius: "12px" }}
+                height="380"
+                style={{ border: 0, display: "block" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Carte Nomeny"
+                title="Carte de Nomeny"
               />
             </div>
           </motion.div>

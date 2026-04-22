@@ -4,172 +4,253 @@ import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 
-const GeoPoly = ({
-  className,
-  color1,
-  color2,
-  size = 120,
-}: {
-  className?: string;
-  color1: string;
-  color2: string;
-  size?: number;
-}) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 120 120"
-    className={className}
-    aria-hidden="true"
-  >
-    <polygon points="60,10 110,40 110,80 60,110 10,80 10,40" fill={color1} opacity="0.15" />
-    <polygon points="60,25 95,45 95,75 60,95 25,75 25,45" fill={color2} opacity="0.1" />
-    <polygon points="60,40 80,52 80,68 60,80 40,68 40,52" fill={color1} opacity="0.12" />
-  </svg>
-);
-
 const containerVariants: Variants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
-  },
+  visible: { transition: { staggerChildren: 0.13, delayChildren: 0.25 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.85, ease: [0.22, 1, 0.36, 1] },
+  },
 };
+
+const stats = [
+  { value: "7", label: "Membres actifs" },
+  { value: "20€", label: "Cotisation / an" },
+  { value: "4", label: "Domaines d'action" },
+];
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
     <section
       id="accueil"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0F0F1A] pb-48"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ background: "#070714" }}
       aria-label="Accueil"
     >
-      {/* Parallax background layer */}
+      {/* ── Parallax background ── */}
       <motion.div
         style={{ y: bgY }}
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
       >
-        {/* Gradient mesh */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0F0F1A] via-[#0d0d22] to-[#0F0F1A]" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#3B82F6] rounded-full blur-[128px] opacity-20 animate-glow-pulse" />
+        {/* Aurora top-left */}
         <div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#7C3AED] rounded-full blur-[128px] opacity-15 animate-glow-pulse"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="absolute top-1/3 right-1/3 w-64 h-64 bg-[#60A5FA] rounded-full blur-[100px] opacity-10 animate-glow-pulse"
-          style={{ animationDelay: "1s" }}
-        />
-
-        {/* Floating geometric shapes */}
-        <div className="absolute top-16 right-16 animate-float">
-          <GeoPoly color1="#3B82F6" color2="#7C3AED" size={140} />
-        </div>
-        <div className="absolute bottom-20 left-10 animate-float-slow" style={{ animationDelay: "2s" }}>
-          <GeoPoly color1="#7C3AED" color2="#60A5FA" size={100} />
-        </div>
-        <div className="absolute top-1/2 right-8 animate-float" style={{ animationDelay: "3s" }}>
-          <GeoPoly color1="#60A5FA" color2="#3B82F6" size={80} />
-        </div>
-        <div className="absolute top-1/4 left-16 animate-float-slow" style={{ animationDelay: "1s" }}>
-          <GeoPoly color1="#4C1D95" color2="#3B82F6" size={60} />
-        </div>
-
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute -top-40 -left-40 w-[900px] h-[900px] rounded-full blur-[180px] opacity-25 animate-glow-pulse"
           style={{
-            backgroundImage: `linear-gradient(rgba(96,165,250,1) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,1) 1px, transparent 1px)`,
-            backgroundSize: "80px 80px",
+            background:
+              "radial-gradient(ellipse, #1D4ED8 0%, #3B82F6 35%, transparent 65%)",
+          }}
+        />
+        {/* Aurora bottom-right */}
+        <div
+          className="absolute -bottom-40 -right-20 w-[800px] h-[800px] rounded-full blur-[180px] opacity-20 animate-glow-pulse"
+          style={{
+            background:
+              "radial-gradient(ellipse, #4C1D95 0%, #7C3AED 35%, transparent 65%)",
+            animationDelay: "2.5s",
+          }}
+        />
+        {/* Subtle center accent */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[200px] opacity-8"
+          style={{
+            background: "radial-gradient(circle, #60A5FA, transparent)",
+          }}
+        />
+
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.032]"
+          style={{
+            backgroundImage: `radial-gradient(rgba(148,168,255,0.9) 1px, transparent 1px)`,
+            backgroundSize: "48px 48px",
+          }}
+        />
+
+        {/* Noise grain */}
+        <div
+          className="absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          }}
+        />
+
+        {/* Horizontal gradient line accent */}
+        <div
+          className="absolute top-[55%] left-0 right-0 h-px opacity-20"
+          style={{
+            background:
+              "linear-gradient(90deg, transparent, rgba(96,165,250,0.6), rgba(167,139,250,0.6), transparent)",
           }}
         />
       </motion.div>
 
-      {/* Content */}
+      {/* ── Main content ── */}
       <motion.div
-        style={{ opacity }}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+        style={{ opacity: contentOpacity, y: contentY }}
+        className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full"
       >
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-2"
+          className="flex flex-col items-center gap-7"
         >
-          <motion.div variants={itemVariants} className="flex justify-center mt-20">
-            <div className="overflow-hidden leading-none">
-              <Image src="/logo.png" width={500} height={500} alt="Logo La Table Des Loups" style={{ objectFit: "contain", background: "transparent", mixBlendMode: "screen", display: "block" }} className="mx-auto border-0" />
+          {/* Logo */}
+          <motion.div variants={itemVariants} className="mt-20">
+            <div
+              className="relative mx-auto"
+              style={{
+                width: "clamp(80px, 12vw, 120px)",
+                height: "clamp(80px, 12vw, 120px)",
+              }}
+            >
+              <Image
+                src="/logo.png"
+                fill
+                alt="Logo La Table Des Loups"
+                style={{ objectFit: "contain", mixBlendMode: "screen" }}
+                priority
+              />
             </div>
           </motion.div>
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-tight tracking-tight text-gradient-hero font-[family-name:var(--font-syne)]"
-          >
-            La Table
-            <br />
-            Des Loups
-          </motion.h1>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-[#60A5FA] text-lg md:text-xl font-semibold tracking-widest uppercase font-[family-name:var(--font-syne)]"
-          >
-            Solidarité • Écologie • Sport
-          </motion.p>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-white/70 text-base md:text-lg max-w-xl leading-relaxed"
-          >
-            Une association de quartier née autour d'une table partagée. Ensemble,
-            nous construisons un Nomeny plus solidaire, plus vert et plus vivant.
-          </motion.p>
-
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mt-2">
-            <a
-              href="#rejoindre"
-              className="group relative px-8 py-4 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:scale-105"
+          {/* Location badge */}
+          <motion.div variants={itemVariants}>
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-[0.22em] uppercase text-[#93C5FD]"
               style={{
-                background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
-                boxShadow: "0 0 30px rgba(59,130,246,0.4), 0 0 60px rgba(124,58,237,0.2)",
+                background: "rgba(59,130,246,0.07)",
+                border: "1px solid rgba(96,165,250,0.2)",
+                boxShadow: "0 0 20px rgba(59,130,246,0.08)",
               }}
             >
-              <span className="relative z-10">Nous rejoindre</span>
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[#60A5FA]"
+                style={{ boxShadow: "0 0 6px rgba(96,165,250,0.8)" }}
+                aria-hidden="true"
+              />
+              Nomeny · Meurthe-et-Moselle · Loi 1901
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.div variants={itemVariants}>
+            <h1
+              className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.88]"
+              style={{ fontSize: "clamp(3.5rem, 10vw, 8rem)" }}
+            >
+              La Table
+              <br />
+              Des Loups
+            </h1>
+          </motion.div>
+
+          {/* Tagline */}
+          <motion.p
+            variants={itemVariants}
+            className="text-white/38 text-xs tracking-[0.38em] uppercase font-[family-name:var(--font-syne)]"
+          >
+            Solidarité · Écologie · Sport
+          </motion.p>
+
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            className="text-white/58 text-base md:text-lg max-w-[480px] leading-[1.75]"
+          >
+            Une association de quartier née autour d'une table partagée.
+            Ensemble, nous construisons un Nomeny plus solidaire, plus vert et
+            plus vivant.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row gap-3"
+          >
+            <a
+              href="#rejoindre"
+              className="group relative px-8 py-3.5 rounded-2xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+              style={{
+                background: "linear-gradient(135deg, #3B82F6 0%, #5B21B6 100%)",
+                boxShadow:
+                  "0 0 35px rgba(59,130,246,0.3), 0 0 80px rgba(124,58,237,0.12), inset 0 1px 0 rgba(255,255,255,0.15)",
+              }}
+            >
+              <span className="relative z-10 tracking-wide">Nous rejoindre</span>
+              {/* Shimmer sweep */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/12 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </a>
             <a
               href="#activites"
-              className="px-8 py-4 rounded-xl font-semibold text-white/80 border border-white/20 hover:border-[#60A5FA]/60 hover:text-white transition-all duration-300 hover:scale-105"
-              style={{ backdropFilter: "blur(8px)" }}
+              className="px-8 py-3.5 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 transition-all duration-300 cursor-pointer tracking-wide"
+              style={{
+                backdropFilter: "blur(8px)",
+                background: "rgba(255,255,255,0.025)",
+              }}
             >
               Nos activités
             </a>
           </motion.div>
+
+          {/* Stats strip */}
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center gap-0 mt-2 pt-8 w-full max-w-xs mx-auto"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+          >
+            {stats.map((stat, i) => (
+              <div key={stat.label} className="flex items-center flex-1">
+                <div className="flex-1 text-center">
+                  <div className="text-xl font-extrabold text-white font-[family-name:var(--font-syne)] leading-none">
+                    {stat.value}
+                  </div>
+                  <div className="text-[10px] text-white/32 mt-1.5 tracking-wide whitespace-nowrap">
+                    {stat.label}
+                  </div>
+                </div>
+                {i < stats.length - 1 && (
+                  <div
+                    className="w-px h-7 mx-4 flex-shrink-0"
+                    style={{ background: "rgba(255,255,255,0.08)" }}
+                    aria-hidden="true"
+                  />
+                )}
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* ── Scroll indicator ── */}
       <motion.div
-        style={{ opacity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ opacity: contentOpacity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
         aria-hidden="true"
       >
-        <span className="text-white/30 text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-white/22 text-[9px] tracking-[0.35em] uppercase font-[family-name:var(--font-syne)]">
+          Défiler
+        </span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-[#60A5FA] to-transparent"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+          className="w-px h-10 bg-gradient-to-b from-white/25 to-transparent"
         />
       </motion.div>
     </section>
