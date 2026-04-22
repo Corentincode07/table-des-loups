@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { navLinks, siteConfig } from "@/lib/data";
 
 const InstagramIcon = () => (
@@ -62,19 +61,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="relative w-10 h-10 flex-shrink-0">
-                <Image
-                  src="/logo.png"
-                  fill
-                  alt="Logo La Table Des Loups"
-                  style={{ objectFit: "contain", mixBlendMode: "screen" }}
-                />
-              </div>
-              <p className="font-extrabold text-white/85 text-base leading-tight font-[family-name:var(--font-syne)] tracking-tight">
-                La Table Des Loups
-              </p>
-            </div>
+
             {/* Social icons */}
             <p className="text-white/28 text-xl font-semibold uppercase tracking-[0.25em] mb-4 mt-2 font-[family-name:var(--font-syne)]">
               Suivez-nous
