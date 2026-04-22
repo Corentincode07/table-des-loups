@@ -117,8 +117,8 @@ export default function Join() {
             Nous rejoindre
           </h2>
           <p className="text-white/50 text-base max-w-md mx-auto">
-            Cotisation annuelle :{" "}
-            <span className="text-[#60A5FA] font-bold">{siteConfig.cotisation}</span>
+            Cotisation une seule fois :{" "}
+            <span className="text-[#60A5FA] font-bold">20€</span>
           </p>
         </motion.div>
 
@@ -193,7 +193,7 @@ export default function Join() {
               </div>
               <div>
                 <p className="text-white font-bold font-[family-name:var(--font-syne)] text-sm">
-                  Cotisation annuelle
+                  Cotisation une seule fois
                 </p>
                 <p className="text-white/45 text-xs mt-0.5">
                   Accès à toutes les activités de l'association
