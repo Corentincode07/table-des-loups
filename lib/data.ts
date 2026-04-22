@@ -88,9 +88,8 @@ export const activities = [
 
 export const membershipBenefits = [
   "Accès à toutes nos activités et événements",
-  "Vote aux assemblées générales",
   "Newsletter membres & avant-premières",
-  "Réductions sur certains événements",
+  "Avantages sur certains événements",
   "Rejoindre une communauté engagée",
 ]
 
