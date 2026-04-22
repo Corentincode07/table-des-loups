@@ -63,9 +63,9 @@ export default function Nav() {
           </span>
         </a>
 
-        {/* Desktop nav — centered absolutely */}
+        {/* Desktop nav — centered via flex */}
         <nav
-          className="flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2"
+          className="flex items-center gap-0.5 flex-1 justify-center px-8"
           aria-label="Liens principaux"
         >
           {navLinks.map((link) => (
