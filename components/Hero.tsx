@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import SearchBar from "@/components/SearchBar";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -209,10 +210,15 @@ export default function Hero() {
             </a>
           </motion.div>
 
+          {/* Search bar */}
+          <motion.div variants={itemVariants} className="w-full max-w-md">
+            <SearchBar />
+          </motion.div>
+
           {/* Stats strip */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-0 mt-2 pt-8 w-full max-w-xs mx-auto"
+            className="flex items-center gap-0 pt-8 w-full max-w-xs mx-auto"
             style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
           >
             {stats.map((stat, i) => (
