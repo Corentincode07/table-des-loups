@@ -33,7 +33,7 @@ export default function Hero() {
     <section
       id="accueil"
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden py-8"
       style={{ background: "#070714" }}
       aria-label="Accueil"
     >
@@ -104,10 +104,10 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-7"
+          className="flex flex-col items-center gap-2"
         >
           {/* Logo */}
-          <motion.div variants={itemVariants} className="mt-20">
+          <motion.div variants={itemVariants} className="mt-4 mb-2">
             <div
               className="relative mx-auto"
               style={{
@@ -205,7 +205,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Search bar */}
-          <motion.div variants={itemVariants} className="w-full max-w-md -mt-3">
+          <motion.div variants={itemVariants} className="w-full max-w-md">
             <SearchBar />
           </motion.div>
 
