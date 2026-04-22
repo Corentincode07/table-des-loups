@@ -82,7 +82,10 @@ export default function Footer() {
             </p>
 
             {/* Social icons */}
-            <div className="flex gap-2.5 mt-7">
+            <p className="text-white/28 text-[10px] font-semibold uppercase tracking-[0.25em] mb-4 mt-7 font-[family-name:var(--font-syne)]">
+              Suivez-nous
+            </p>
+            <div className="flex gap-2.5">
               {socialLinks.map(({ label, href, icon: Icon, hoverColor }) => (
                 <a
                   key={label}
