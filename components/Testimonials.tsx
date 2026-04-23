@@ -22,24 +22,27 @@ const testimonials = [
     role: "Président",
     text: "La Table Des Loups c'est avant tout une famille. On a créé quelque chose de rare : un endroit où tout le monde se sent bienvenu, peu importe qui tu es.",
     gradient: "linear-gradient(145deg, #1D4ED8, #3B82F6)",
-    glow: "rgba(59,130,246,0.35)",
-    border: "rgba(59,130,246,0.3)",
+    border: "rgba(59,130,246,0.2)",
+    shadow: "0 4px 24px rgba(59,130,246,0.1), 0 1px 8px rgba(0,0,0,0.06)",
+    roleColor: "#1D4ED8",
   },
   {
     name: "Philemon",
     role: "Coach sportif",
     text: "Ce qui me plaît dans cette asso, c'est qu'on mélange le sport avec la solidarité. On transpire ensemble mais on partage aussi des moments humains forts.",
     gradient: "linear-gradient(145deg, #5B21B6, #7C3AED)",
-    glow: "rgba(124,58,237,0.35)",
-    border: "rgba(124,58,237,0.3)",
+    border: "rgba(124,58,237,0.2)",
+    shadow: "0 4px 24px rgba(124,58,237,0.1), 0 1px 8px rgba(0,0,0,0.06)",
+    roleColor: "#7C3AED",
   },
   {
     name: "Valentine",
     role: "Secrétaire",
     text: "J'ai rejoint l'asso pour donner de mon temps et j'ai reçu bien plus en retour. C'est exactement le genre de projet qui manquait à Nomeny.",
     gradient: "linear-gradient(145deg, #1E40AF, #60A5FA)",
-    glow: "rgba(96,165,250,0.35)",
-    border: "rgba(96,165,250,0.3)",
+    border: "rgba(96,165,250,0.2)",
+    shadow: "0 4px 24px rgba(96,165,250,0.1), 0 1px 8px rgba(0,0,0,0.06)",
+    roleColor: "#2563EB",
   },
 ];
 
@@ -56,20 +59,9 @@ export default function Testimonials() {
   return (
     <section
       id="temoignages"
-      className="relative py-32 px-6 overflow-hidden"
-      style={{ background: "#070714" }}
+      className="relative py-32 px-6 overflow-hidden bg-white"
       aria-labelledby="testimonials-heading"
     >
-      {/* Section divider */}
-      <div className="absolute top-0 inset-x-0 section-divider" aria-hidden="true" />
-
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full blur-[200px] opacity-[0.06] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, #3B82F6, #7C3AED)" }}
-        aria-hidden="true"
-      />
-
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -79,12 +71,12 @@ export default function Testimonials() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] as const }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-[#60A5FA] mb-5 font-[family-name:var(--font-syne)]">
+          <span className="inline-block text-[11px] font-semibold tracking-[0.3em] uppercase text-blue-600 mb-5 font-[family-name:var(--font-syne)]">
             Témoignages
           </span>
           <h2
             id="testimonials-heading"
-            className="text-4xl md:text-5xl font-bold text-white font-[family-name:var(--font-playfair)] leading-[1.1]"
+            className="text-4xl md:text-5xl font-bold text-gray-900 font-[family-name:var(--font-playfair)] leading-[1.1]"
           >
             Ils parlent de nous
           </h2>
@@ -104,12 +96,10 @@ export default function Testimonials() {
               variants={cardVariants}
               whileHover={{ y: -6, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 24 }}
-              className="flex flex-col gap-5 p-7 rounded-2xl"
+              className="flex flex-col gap-5 p-7 rounded-2xl bg-white"
               style={{
-                background: "rgba(255,255,255,0.03)",
                 border: `1px solid ${t.border}`,
-                boxShadow: `0 0 40px ${t.glow}, 0 1px 16px rgba(0,0,0,0.2)`,
-                backdropFilter: "blur(12px)",
+                boxShadow: t.shadow,
               }}
             >
               {/* Quote icon */}
@@ -122,14 +112,14 @@ export default function Testimonials() {
 
               {/* Text */}
               <p
-                className="text-[#C4B5FD] text-[15px] leading-relaxed flex-1 font-[family-name:var(--font-syne)]"
+                className="text-gray-700 text-[15px] leading-relaxed flex-1 font-[family-name:var(--font-syne)]"
                 style={{ fontStyle: "italic" }}
               >
                 &ldquo;{t.text}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-2 border-t border-white/5">
+              <div className="flex items-center gap-3 pt-2 border-t border-gray-100">
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
                   style={{ background: t.gradient }}
@@ -137,10 +127,10 @@ export default function Testimonials() {
                   {t.name.slice(0, 2).toUpperCase()}
                 </div>
                 <div>
-                  <p className="text-white text-sm font-semibold font-[family-name:var(--font-syne)]">
+                  <p className="text-gray-900 text-sm font-semibold font-[family-name:var(--font-syne)]">
                     {t.name}
                   </p>
-                  <p className="text-[#60A5FA] text-xs font-[family-name:var(--font-syne)]">
+                  <p className="text-xs font-[family-name:var(--font-syne)]" style={{ color: t.roleColor }}>
                     {t.role}
                   </p>
                 </div>
