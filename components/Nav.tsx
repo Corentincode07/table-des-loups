@@ -93,28 +93,25 @@ export default function Nav() {
             Adhérer — 20€
           </a>
 
-          {/* Mobile hamburger */}
+          {/* Mobile hamburger / close */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 cursor-pointer"
+            className="md:hidden flex items-center justify-center w-9 h-9 cursor-pointer text-white/70 hover:text-white transition-colors duration-200 relative z-50"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={menuOpen}
           >
-            <span
-              className={`block w-5 h-0.5 bg-white/70 rounded-full transition-all duration-300 origin-center ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-0.5 bg-white/70 rounded-full transition-all duration-300 ${
-                menuOpen ? "opacity-0 scale-x-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-5 h-0.5 bg-white/70 rounded-full transition-all duration-300 origin-center ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            {menuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <line x1="3" y1="3" x2="17" y2="17" />
+                <line x1="17" y1="3" x2="3" y2="17" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <line x1="3" y1="5" x2="17" y2="5" />
+                <line x1="3" y1="10" x2="17" y2="10" />
+                <line x1="3" y1="15" x2="17" y2="15" />
+              </svg>
+            )}
           </button>
         </div>
 
