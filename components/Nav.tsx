@@ -92,28 +92,29 @@ export default function Nav() {
           >
             Adhérer — 20€
           </a>
-
-          {/* Mobile hamburger / close */}
-          <button
-            className="md:hidden flex items-center justify-center w-9 h-9 cursor-pointer text-white/70 hover:text-white transition-colors duration-200 relative z-50"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={menuOpen}
-          >
-            {menuOpen ? (
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                <line x1="3" y1="3" x2="17" y2="17" />
-                <line x1="17" y1="3" x2="3" y2="17" />
-              </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                <line x1="3" y1="5" x2="17" y2="5" />
-                <line x1="3" y1="10" x2="17" y2="10" />
-                <line x1="3" y1="15" x2="17" y2="15" />
-              </svg>
-            )}
-          </button>
         </div>
+
+        {/* Mobile toggle — fixed, independent of scroll state */}
+        <button
+          className="md:hidden fixed top-4 right-4 z-[60] flex items-center justify-center w-10 h-10 rounded-xl cursor-pointer text-white transition-colors duration-200"
+          style={{ background: menuOpen ? "rgba(255,255,255,0.08)" : "transparent" }}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? (
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <line x1="3" y1="3" x2="17" y2="17" />
+              <line x1="17" y1="3" x2="3" y2="17" />
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <line x1="3" y1="5" x2="17" y2="5" />
+              <line x1="3" y1="10" x2="17" y2="10" />
+              <line x1="3" y1="15" x2="17" y2="15" />
+            </svg>
+          )}
+        </button>
 
         {/* Mobile full-screen overlay */}
         <AnimatePresence>
