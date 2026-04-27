@@ -196,8 +196,8 @@ export default function About() {
               </p>
             </div>
 
-            <div className="p-3 rounded-2xl bg-[#080818] border border-blue-500/30 shadow-[0_0_40px_rgba(124,58,237,0.4)]" style={{ maxHeight: "450px" }}>
-              <div className="rounded-xl overflow-hidden" style={{ height: "450px", maxHeight: "450px" }}>
+            <div className="p-3 rounded-2xl overflow-hidden bg-[#080818] border border-blue-500/30 shadow-[0_0_40px_rgba(124,58,237,0.4)]" style={{ maxHeight: "450px" }}>
+              <div className="rounded-2xl overflow-hidden" style={{ height: "450px", maxHeight: "450px" }}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d41983.54873276361!2d6.191466850901038!3d48.87781421148403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4794eab5e309a6e5%3A0x40a5fb99a3af5a0!2s54610%20Nomeny!5e1!3m2!1sfr!2sfr!4v1776842191976!5m2!1sfr!2sfr"
                 width="100%"
