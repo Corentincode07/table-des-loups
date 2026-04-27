@@ -111,20 +111,27 @@ export default function Team() {
                 <motion.div
                   key={member.name}
                   variants={cardVariants}
-                  whileHover={{ y: -6, scale: 1.04 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 24 }}
                   onClick={() => setSelected({ member, index: i })}
-                  className="group flex flex-col items-center text-center p-5 rounded-2xl cursor-pointer transition-all duration-300"
+                  className="group flex flex-col items-center text-center p-5 rounded-2xl cursor-pointer transition-all duration-300 ease-in-out hover:scale-105"
                   style={{
                     background: "rgba(255,255,255,0.025)",
                     border: "1px solid rgba(255,255,255,0.07)",
                     boxShadow: "0 1px 16px rgba(0,0,0,0.15)",
                   }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.boxShadow =
+                      member.color === "blue"
+                        ? "0 8px 32px rgba(59,130,246,0.25), 0 1px 16px rgba(0,0,0,0.2)"
+                        : "0 8px 32px rgba(124,58,237,0.25), 0 1px 16px rgba(0,0,0,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 1px 16px rgba(0,0,0,0.15)";
+                  }}
                   aria-label={`Voir le profil de ${member.name}`}
                 >
                   {/* Avatar */}
                   <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-[15px] mb-3.5 group-hover:scale-110 transition-transform duration-300 font-[family-name:var(--font-syne)]"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-[15px] mb-3.5 font-[family-name:var(--font-syne)]"
                     style={{
                       background: gradient,
                       boxShadow: `0 6px 20px ${member.color === "blue" ? "rgba(59,130,246,0.35)" : "rgba(124,58,237,0.35)"}`,
