@@ -60,7 +60,7 @@ export default function Events() {
   return (
     <section
       id="events"
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-16 md:py-32 px-4 md:px-6 overflow-hidden"
       style={{ background: "#0C0C20" }}
       aria-labelledby="events-heading"
     >
@@ -105,7 +105,7 @@ export default function Events() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl mx-auto mb-14 rounded-2xl p-10 text-center relative overflow-hidden"
+          className="max-w-2xl mx-auto mb-14 rounded-2xl p-6 md:p-10 text-center relative overflow-hidden"
           style={{
             background: "rgba(255,255,255,0.025)",
             border: "1px solid rgba(96,165,250,0.2)",

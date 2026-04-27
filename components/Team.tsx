@@ -48,7 +48,7 @@ export default function Team() {
   return (
     <section
       id="equipe"
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-16 md:py-32 px-4 md:px-6 overflow-hidden"
       style={{ background: "#070714" }}
       aria-labelledby="team-heading"
     >

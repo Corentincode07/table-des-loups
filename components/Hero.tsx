@@ -112,10 +112,7 @@ export default function Hero() {
 
           {/* Title */}
           <motion.div variants={itemVariants} className="mb-8">
-            <h1
-              className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.9]"
-              style={{ fontSize: "clamp(4rem, 10vw, 7rem)" }}
-            >
+            <h1 className="text-gradient-hero font-[family-name:var(--font-syne)] font-extrabold tracking-tight leading-[0.9] text-5xl md:text-7xl lg:text-[7rem]">
               La Table Des Loups
             </h1>
           </motion.div>
@@ -140,11 +137,11 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-3"
+            className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
           >
             <a
               href="#rejoindre"
-              className="group relative px-7 py-2.5 rounded-2xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+              className="group relative w-full sm:w-auto px-7 py-3 rounded-2xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer text-center min-h-[44px] flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, #3B82F6 0%, #5B21B6 100%)",
                 boxShadow: "0 0 30px rgba(59,130,246,0.3), inset 0 1px 0 rgba(255,255,255,0.15)",
@@ -155,7 +152,7 @@ export default function Hero() {
             </a>
             <a
               href="#activites"
-              className="px-7 py-2.5 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 transition-all duration-300 cursor-pointer tracking-wide"
+              className="w-full sm:w-auto px-7 py-3 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 transition-all duration-300 cursor-pointer tracking-wide text-center min-h-[44px] flex items-center justify-center"
               style={{ backdropFilter: "blur(8px)", background: "rgba(255,255,255,0.025)" }}
             >
               Nos activités

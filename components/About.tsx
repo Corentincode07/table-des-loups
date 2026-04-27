@@ -86,12 +86,12 @@ export default function About() {
   return (
     <section
       id="qui-sommes-nous"
-      className="relative py-32 px-6 overflow-hidden bg-white"
+      className="relative py-16 md:py-32 px-4 md:px-6 overflow-hidden bg-white"
       aria-labelledby="about-heading"
     >
 
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* ── Left: story + values ── */}
           <div>
             <motion.div

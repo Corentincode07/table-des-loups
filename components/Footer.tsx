@@ -57,10 +57,10 @@ export default function Footer() {
       {/* Top gradient divider */}
       <div className="section-divider" aria-hidden="true" />
 
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 pt-16 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-14 text-center md:text-left">
           {/* Brand */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
 
             {/* Social icons */}
             <p className="text-white/28 text-xl font-semibold uppercase tracking-[0.25em] mb-4 mt-2 font-[family-name:var(--font-syne)]">
@@ -92,7 +92,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <nav aria-label="Navigation du pied de page">
+          <nav aria-label="Navigation du pied de page" className="flex flex-col items-center md:items-start">
             <p className="text-white/28 text-[10px] font-semibold uppercase tracking-[0.25em] mb-6 font-[family-name:var(--font-syne)]">
               Navigation
             </p>
@@ -111,7 +111,7 @@ export default function Footer() {
           </nav>
 
           {/* Association info */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <p className="text-white/28 text-[10px] font-semibold uppercase tracking-[0.25em] mb-6 font-[family-name:var(--font-syne)]">
               Association
             </p>

@@ -118,31 +118,29 @@ export default function Nav() {
           </button>
         </div>
 
-        {/* Mobile dropdown */}
+        {/* Mobile full-screen overlay */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
               key="mobile-menu"
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="md:hidden mx-3 mt-2 rounded-2xl overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className="md:hidden fixed inset-0 z-40 flex flex-col"
               style={{
-                background: "rgba(7, 7, 20, 0.96)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                boxShadow: "0 8px 40px rgba(0,0,0,0.6)",
+                background: "rgba(7, 7, 20, 0.97)",
                 backdropFilter: "blur(24px)",
                 WebkitBackdropFilter: "blur(24px)",
               }}
             >
-              <nav className="flex flex-col px-4 py-4 gap-1" aria-label="Menu mobile">
+              <nav className="flex flex-col items-center justify-center flex-1 gap-2" aria-label="Menu mobile">
                 {navLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="px-4 py-3 rounded-xl text-sm text-white/65 hover:text-white hover:bg-white/5 transition-all duration-200 font-medium cursor-pointer"
+                    className="px-8 py-4 text-xl text-white/65 hover:text-white transition-colors duration-200 font-medium cursor-pointer font-[family-name:var(--font-syne)] min-h-[56px] flex items-center"
                   >
                     {link.label}
                   </a>
@@ -150,10 +148,10 @@ export default function Nav() {
                 <a
                   href="#rejoindre"
                   onClick={() => setMenuOpen(false)}
-                  className="mt-2 px-4 py-3 rounded-xl text-sm font-semibold text-white text-center cursor-pointer"
+                  className="mt-6 px-10 py-4 rounded-2xl text-base font-semibold text-white text-center cursor-pointer min-h-[56px] flex items-center font-[family-name:var(--font-syne)]"
                   style={{
                     background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
-                    boxShadow: "0 0 20px rgba(59,130,246,0.2)",
+                    boxShadow: "0 0 30px rgba(59,130,246,0.3)",
                   }}
                 >
                   Adhérer — 20€

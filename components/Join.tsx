@@ -76,7 +76,7 @@ export default function Join() {
   return (
     <section
       id="rejoindre"
-      className="relative py-32 px-6 overflow-hidden"
+      className="relative py-16 md:py-32 px-4 md:px-6 overflow-hidden"
       style={{ background: "#0C0C20" }}
       aria-labelledby="join-heading"
     >
@@ -122,7 +122,7 @@ export default function Join() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* ── Benefits ── */}
           <div>
             <motion.h3
@@ -260,7 +260,7 @@ export default function Join() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(["nom", "prenom"] as const).map((field) => (
                     <div key={field}>
                       <label
