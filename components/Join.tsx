@@ -250,12 +250,10 @@ export default function Join() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3 font-[family-name:var(--font-syne)]">
-                  Message envoyé !
+                  Merci !
                 </h3>
                 <p className="text-white/55 text-sm leading-relaxed">
-                  On reviendra vers vous très bientôt.
-                  <br />
-                  Bienvenue dans la meute.
+                  Nous vous contacterons bientôt 🐺
                 </p>
               </motion.div>
             ) : (

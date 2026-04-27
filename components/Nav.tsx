@@ -21,6 +21,12 @@ export default function Nav() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    document.getElementById(href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   return (
     <>
       <header
@@ -51,6 +57,7 @@ export default function Nav() {
           {/* Brand */}
           <a
             href="#accueil"
+            onClick={(e) => scrollTo(e, '#accueil')}
             className="flex items-center group cursor-pointer pl-4"
             aria-label="Accueil La Table Des Loups"
           >
@@ -72,6 +79,7 @@ export default function Nav() {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={(e) => scrollTo(e, link.href)}
                 className="relative px-4 py-2 rounded-xl text-sm text-white/50 hover:text-white/90 transition-all duration-200 font-medium group cursor-pointer"
               >
                 <span className="relative z-10">{link.label}</span>
@@ -83,6 +91,7 @@ export default function Nav() {
           {/* Desktop CTA */}
           <a
             href="#join"
+            onClick={(e) => scrollTo(e, '#join')}
             className="hidden md:flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:brightness-110 cursor-pointer"
             style={{
               background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
@@ -137,7 +146,7 @@ export default function Nav() {
                   <a
                     key={link.label}
                     href={link.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => scrollTo(e, link.href)}
                     className="px-8 py-4 text-xl text-white/65 hover:text-white transition-colors duration-200 font-medium cursor-pointer font-[family-name:var(--font-syne)] min-h-[56px] flex items-center"
                   >
                     {link.label}
@@ -145,8 +154,8 @@ export default function Nav() {
                 ))}
                 <a
                   href="#join"
-                  onClick={() => setMenuOpen(false)}
-                  className="mt-6 px-10 py-4 rounded-2xl text-base font-semibold text-white text-center cursor-pointer min-h-[56px] flex items-center font-[family-name:var(--font-syne)]"
+                  onClick={(e) => scrollTo(e, '#join')}
+                  className="mt-6 px-10 py-4 rounded-2xl text-base font-semibold text-white text-center cursor-pointer min-h-[56px] flex items-center font-[family-name:var(--font-syne)] hover:scale-105 transition-transform duration-200"
                   style={{
                     background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
                     boxShadow: "0 0 30px rgba(59,130,246,0.3)",

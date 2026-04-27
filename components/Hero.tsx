@@ -153,7 +153,8 @@ export default function Hero() {
             </a>
             <a
               href="#activites"
-              className="w-full sm:w-auto px-7 py-3 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 transition-all duration-300 cursor-pointer tracking-wide text-center min-h-[44px] flex items-center justify-center"
+              onClick={(e) => { e.preventDefault(); document.getElementById('activites')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="w-full sm:w-auto px-7 py-3 rounded-2xl font-semibold text-white/65 text-sm border border-white/10 hover:border-white/22 hover:text-white/88 hover:scale-105 transition-all duration-300 cursor-pointer tracking-wide text-center min-h-[44px] flex items-center justify-center"
               style={{ backdropFilter: "blur(8px)", background: "rgba(255,255,255,0.025)" }}
             >
               Nos activités

@@ -134,7 +134,7 @@ export default function About() {
                   <motion.div
                     key={value.title}
                     variants={fadeUp}
-                    whileHover={{ x: 5 }}
+                    whileHover={{ x: 4, y: -3, scale: 1.01 }}
                     transition={{ type: "spring", stiffness: 300, damping: 25 }}
                     className="group flex items-start gap-5 p-5 rounded-2xl cursor-default transition-all duration-300 bg-white"
                     style={{

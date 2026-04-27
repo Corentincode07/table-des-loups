@@ -165,8 +165,9 @@ export default function Events() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              whileHover={{ y: -5, scale: 1.02 }}
               transition={{ duration: 0.55, delay: p.delay, ease: [0.22, 1, 0.36, 1] }}
-              className="group rounded-2xl p-8 flex flex-col gap-4 relative overflow-hidden cursor-default transition-all duration-300 hover:border-white/12"
+              className="group rounded-2xl p-8 flex flex-col gap-4 relative overflow-hidden cursor-default"
               style={{
                 background: "rgba(255,255,255,0.018)",
                 border: "1px solid rgba(255,255,255,0.06)",
