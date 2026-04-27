@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Events from "@/components/Events";
 import Activities from "@/components/Activities";
 import Team from "@/components/Team";
-import Testimonials from "@/components/Testimonials";
 import Join from "@/components/Join";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
@@ -19,7 +18,6 @@ export default function Home() {
         <Events />
         <Activities />
         <Team />
-<Testimonials />
 <Join />
       </main>
       <Footer />
