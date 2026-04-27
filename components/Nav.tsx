@@ -82,7 +82,7 @@ export default function Nav() {
 
           {/* Desktop CTA */}
           <a
-            href="#rejoindre"
+            href="#join"
             className="hidden md:flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-105 hover:brightness-110 cursor-pointer"
             style={{
               background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
@@ -146,7 +146,7 @@ export default function Nav() {
                   </a>
                 ))}
                 <a
-                  href="#rejoindre"
+                  href="#join"
                   onClick={() => setMenuOpen(false)}
                   className="mt-6 px-10 py-4 rounded-2xl text-base font-semibold text-white text-center cursor-pointer min-h-[56px] flex items-center font-[family-name:var(--font-syne)]"
                   style={{

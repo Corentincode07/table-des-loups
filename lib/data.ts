@@ -98,7 +98,7 @@ export const navLinks = [
   { label: "Activités", href: "#activites" },
   { label: "Événements", href: "#events" },
   { label: "Équipe", href: "#equipe" },
-  { label: "Nous rejoindre", href: "#rejoindre" },
+  { label: "Nous rejoindre", href: "#join" },
 ]
 
 export const socialLinks = [

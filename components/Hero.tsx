@@ -140,7 +140,8 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
           >
             <a
-              href="#rejoindre"
+              href="#join"
+              onClick={(e) => { e.preventDefault(); document.getElementById('join')?.scrollIntoView({ behavior: 'smooth' }); }}
               className="group relative w-full sm:w-auto px-7 py-3 rounded-2xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer text-center min-h-[44px] flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, #3B82F6 0%, #5B21B6 100%)",

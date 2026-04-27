@@ -75,7 +75,7 @@ export default function Join() {
 
   return (
     <section
-      id="rejoindre"
+      id="join"
       className="relative py-16 md:py-32 px-4 md:px-6 overflow-hidden"
       style={{ background: "#0C0C20" }}
       aria-labelledby="join-heading"

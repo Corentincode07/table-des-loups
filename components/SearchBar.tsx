@@ -33,7 +33,7 @@ const SECTIONS = [
     ],
   },
   {
-    id: "#rejoindre",
+    id: "#join",
     label: "Nous rejoindre",
     keywords: [
       "rejoindre", "adherer", "adhesion", "cotisation", "inscription",

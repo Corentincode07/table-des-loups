@@ -129,7 +129,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="#rejoindre"
+              href="#join"
               className="inline-flex items-center gap-2 mt-8 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-105 cursor-pointer"
               style={{
                 background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
