@@ -2,57 +2,42 @@
 
 import { motion } from "framer-motion";
 
-const CalendarIcon = () => (
-  <svg
-    width="26"
-    height="26"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-    <line x1="16" y1="2" x2="16" y2="6" />
-    <line x1="8" y1="2" x2="8" y2="6" />
-    <line x1="3" y1="10" x2="21" y2="10" />
-  </svg>
-);
-
-const BellIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
-    <path d="M13.73 21a2 2 0 01-3.46 0" />
-  </svg>
-);
-
-const placeholders = [
+const events = [
   {
-    label: "Prochain événement",
-    desc: "À définir prochainement",
-    delay: 0.15,
+    emoji: "🍲",
+    title: "Couscousquiz",
+    description:
+      "Un quiz géant autour d'un couscous convivial ! Testez vos connaissances en équipe dans une ambiance chaleureuse et gourmande.",
+    category: "Événement",
+    badgeColor: "#F59E0B",
+    badgeBg: "rgba(245,158,11,0.12)",
+    glow: "rgba(245,158,11,0.18)",
+    accent: "#F59E0B",
+    delay: 0.1,
   },
   {
-    label: "Événement en préparation",
-    desc: "Restez à l'écoute",
-    delay: 0.25,
+    emoji: "🎨",
+    title: "Concours de Dessin",
+    description:
+      "Exprimez votre créativité ! Ouvert à tous les niveaux, ce concours met à l'honneur les talents artistiques de Nomeny.",
+    category: "Culture",
+    badgeColor: "#60A5FA",
+    badgeBg: "rgba(96,165,250,0.12)",
+    glow: "rgba(59,130,246,0.18)",
+    accent: "#3B82F6",
+    delay: 0.2,
   },
   {
-    label: "Surprise à venir",
-    desc: "On vous prépare quelque chose",
-    delay: 0.35,
+    emoji: "🏆",
+    title: "Wolfycup",
+    description:
+      "La compétition sportive de La Table Des Loups ! Plusieurs épreuves, une ambiance de feu et l'esprit d'équipe au rendez-vous.",
+    category: "Sport",
+    badgeColor: "#A78BFA",
+    badgeBg: "rgba(167,139,250,0.12)",
+    glow: "rgba(124,58,237,0.18)",
+    accent: "#7C3AED",
+    delay: 0.3,
   },
 ];
 
@@ -99,123 +84,85 @@ export default function Events() {
           </h2>
         </motion.div>
 
-        {/* Announcement card */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl mx-auto mb-14 rounded-2xl p-6 md:p-10 text-center relative overflow-hidden"
-          style={{
-            background: "rgba(255,255,255,0.025)",
-            border: "1px solid rgba(96,165,250,0.2)",
-            boxShadow:
-              "0 0 60px rgba(124,58,237,0.12), 0 0 120px rgba(59,130,246,0.06)",
-          }}
-        >
-          {/* Subtle top gradient accent */}
-          <div
-            className="absolute top-0 inset-x-0 h-px"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, rgba(59,130,246,0.5), rgba(124,58,237,0.5), transparent)",
-            }}
-            aria-hidden="true"
-          />
-
-          {/* Icon */}
-          <div
-            className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white"
-            style={{
-              background: "linear-gradient(135deg, #3B82F6, #7C3AED)",
-              boxShadow: "0 8px 32px rgba(59,130,246,0.3), 0 0 60px rgba(124,58,237,0.15)",
-            }}
-          >
-            <CalendarIcon />
-          </div>
-
-          <h3 className="text-xl font-bold text-white mb-3 font-[family-name:var(--font-syne)]">
-            Annonces à venir
-          </h3>
-          <p className="text-white/55 text-base leading-relaxed">
-            Les prochains événements seront annoncés très bientôt.{" "}
-            <span className="text-[#60A5FA] font-semibold">
-              Restez connectés !
-            </span>
-          </p>
-
-          {/* Follow hint */}
-          <div
-            className="inline-flex items-center gap-2 mt-6 px-4 py-2 rounded-full text-xs text-white/40 font-[family-name:var(--font-syne)]"
-            style={{
-              border: "1px solid rgba(255,255,255,0.08)",
-              background: "rgba(255,255,255,0.03)",
-            }}
-          >
-            <BellIcon />
-            Suivez-nous sur les réseaux pour ne rien manquer
-          </div>
-        </motion.div>
-
-        {/* Placeholder cards */}
+        {/* Event cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {placeholders.map((p, i) => (
-            <motion.div
-              key={i}
+          {events.map((event) => (
+            <motion.article
+              key={event.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              transition={{ duration: 0.55, delay: p.delay, ease: [0.22, 1, 0.36, 1] }}
-              className="group rounded-2xl p-8 flex flex-col gap-4 relative overflow-hidden cursor-default"
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.55, delay: event.delay, ease: [0.22, 1, 0.36, 1] }}
+              className="group rounded-2xl p-7 flex flex-col gap-5 relative overflow-hidden cursor-default"
               style={{
-                background: "rgba(255,255,255,0.018)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+              }}
+              onHoverStart={(e) => {
+                const el = e.target as HTMLElement;
+                el.closest("article")!.style.borderColor = `${event.accent}55`;
+                el.closest("article")!.style.boxShadow = `0 0 40px ${event.glow}, 0 0 80px ${event.glow}`;
+              }}
+              onHoverEnd={(e) => {
+                const el = e.target as HTMLElement;
+                const article = el.closest("article");
+                if (article) {
+                  article.style.borderColor = "rgba(255,255,255,0.08)";
+                  article.style.boxShadow = "none";
+                }
               }}
             >
-              {/* Top line skeleton */}
+              {/* Top accent line */}
               <div
-                className="h-1.5 rounded-full animate-shimmer"
+                className="absolute top-0 inset-x-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
-                  background:
-                    "linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%)",
-                  backgroundSize: "200% auto",
-                  width: i === 0 ? "60%" : i === 1 ? "75%" : "50%",
+                  background: `linear-gradient(90deg, transparent, ${event.accent}99, transparent)`,
                 }}
                 aria-hidden="true"
               />
 
-              <div className="space-y-2" aria-hidden="true">
-                {[80, 65, 45].map((w, j) => (
-                  <div
-                    key={j}
-                    className="h-1 rounded-full"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      width: `${w}%`,
-                    }}
-                  />
-                ))}
+              {/* Emoji icon */}
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+                style={{
+                  background: event.badgeBg,
+                  border: `1px solid ${event.badgeColor}33`,
+                }}
+              >
+                {event.emoji}
               </div>
 
-              {/* Label */}
-              <div className="mt-auto">
+              {/* Text */}
+              <div className="flex flex-col gap-2 flex-1">
+                <h3 className="text-lg font-bold text-white font-[family-name:var(--font-syne)] leading-snug">
+                  {event.title}
+                </h3>
+                <p className="text-white/55 text-sm leading-relaxed">
+                  {event.description}
+                </p>
+              </div>
+
+              {/* Category badge */}
+              <div>
                 <span
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold text-white/30 font-[family-name:var(--font-syne)]"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold font-[family-name:var(--font-syne)]"
                   style={{
-                    border: "1px solid rgba(255,255,255,0.07)",
-                    background: "rgba(255,255,255,0.025)",
+                    color: event.badgeColor,
+                    background: event.badgeBg,
+                    border: `1px solid ${event.badgeColor}33`,
                   }}
                 >
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] opacity-60"
+                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    style={{ background: event.badgeColor }}
                     aria-hidden="true"
-                    style={{ animation: `pulse 2s ease-in-out ${i * 0.4}s infinite` }}
                   />
-                  {p.label}
+                  {event.category}
                 </span>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
